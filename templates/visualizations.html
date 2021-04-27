@@ -13,10 +13,10 @@
 	</header>
 	<nav>
 		<ul class="navbar">
-			<li><a class="passive" href="index.html"> Home </a></li>
-			<li><a class="passive" href="data_input.html"> Data Input </a></li>
-			<li><a class="active" href="visualizations.html"> Visualizations </a></li>
-			<li><a class="passive" href="contact.html"> Contact </a></li>
+			<li><a class="passive" href="{% url 'home' %}"> Home </a></li>
+			<li><a class="passive" href="{% url 'data_input' %}"> Data Input </a></li>
+			<li><a class="active" href="{% url 'visualization' %}"> Visualizations </a></li>
+			<li><a class="passive" href ="{% url 'contact' %}"> Contact </a></li>
 		</ul>
 	</nav>
 

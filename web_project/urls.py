@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from main.views import home_view
+from main.views import home_view, data_input_view, visualization_view, contact_view
+
+#This are the url patterns the first argument in path() is the suffix of our normal url like this "ourwebpage/suffix.com"
+#The second argument is the imported view function to render our html 
+#The third argument is the internal name of the url this can be used to link the urls to eachother in the html files
 urlpatterns = [
     path('',home_view, name = 'home'),
+    path('data_input/', data_input_view, name = "data_input" ),
+    path('visualization/', visualization_view, name = 'visualization'),
+    path('contact/', contact_view, name = "contact"),
     path('admin/', admin.site.urls),
     
 ]
