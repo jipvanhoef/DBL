@@ -1,0 +1,41 @@
+body {
+	font-size: 16px;
+	background-color: lightgrey;
+}
+
+
+
+ul.navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: red;
+	border: 1px solid #555;
+	overflow: hidden;	/* prevent li elements from going outside of the list */
+	position: sticky;
+	top: 0;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	padding: 14px 16px;
+	text-decoration: none; /* removes the underline */
+	text-align: center;
+}
+
+
+/* style for the navbar item that is active */
+li a.active {
+	background-color: pink;
+}
+
+/* style for the navbar item that is hovered by the mouse */
+li a:hover:not(.active) {
+	background-color: orange;
+}
+

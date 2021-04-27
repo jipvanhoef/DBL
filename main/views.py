@@ -10,9 +10,7 @@ def home_view(request, *args, **kwargs):
 def data_input_view(request, *args, **kwargs):
     return render(request, "data_input.html", {})
 
-#This function renders our html page for the visualizations
-def visualization_view(request, *args, **kwargs):
-    return render(request, "visualizations.html", {})
+
 
 #This function renders our html page for the contact page
 def contact_view(request, *args, **kwargs):
