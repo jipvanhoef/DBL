@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\20201930\Documents\Uni\2020-2021\Q4\DBL\DBL\env"
+VIRTUAL_ENV="C:\Users\schoe\DBL-1\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
