@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"> 
+	<link rel="shortcut icon" href="icon.png" />
+    {% load static %}
+    <link rel="stylesheet"  href="{%  static  'main/stylesheet.css'  %}">
+</head>
+<body>
+   
+    
+    
+    <header>
+        <h1> Company name </h1>
+        <nav>
+            <ul class="navbar">
+                <li><a href="{% url 'home' %}"> Home </a></li>
+                <li><a href="{% url 'data_input' %}"> Data Input </a></li>
+                <li><a href="{% url 'visualization' %}"> Visualizations </a></li>
+                <li><a href ="{% url 'contact' %}"> Contact </a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+    
+</body>
+</html>
