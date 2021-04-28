@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base.html'%}
+{%block content%}
 <head>
-	<meta charset="utf-8"> 
-	<link rel="shortcut icon" href="icon.png" />
 	<title>Data Input</title>
-	<link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
-	<header>
-			<h1> Company name </h1>
-	</header>
-	<nav>
-		<ul class="navbar">
-			<li><a class="passive" href="{% url 'home' %}"> Home </a></li>
-			<li><a class="passive" href="{% url 'data_input' %}"> Data Input </a></li>
-			<li><a class="active" href="{% url 'visualization' %}"> Visualizations </a></li>
-			<li><a class="passive" href ="{% url 'contact' %}"> Contact </a></li>
-		</ul>
-	</nav>
-
 	<section>
 		<h3> Data Input </h3>
 		<article>
@@ -36,7 +21,8 @@
 			<p> -The answer </p><br> 
 			Motivation <br>
 			<br> <br> <br> <br>
+			hi hi
 		</article>
 	</section>
 </body>
-</html>
+{%endblock%}
