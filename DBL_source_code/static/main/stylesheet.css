@@ -9,11 +9,8 @@ ul.navbar {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	background-color: red;
+	background-color: black;
 	border: 1px solid #555;
-	overflow: hidden;	/* prevent li elements from going outside of the list */
-	position: sticky;
-	top: 0;
 }
 
 li {
@@ -22,7 +19,7 @@ li {
 
 li a {
 	display: block;
-	color: white;
+	color: rgb(255, 255, 255);
 	padding: 14px 16px;
 	text-decoration: none; /* removes the underline */
 	text-align: center;
@@ -37,5 +34,10 @@ li a.active {
 /* style for the navbar item that is hovered by the mouse */
 li a:hover:not(.active) {
 	background-color: orange;
+}
+
+img {
+	width: 30px;
+	height: 30px;
 }
 

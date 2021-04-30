@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {%extends 'base.html'%}
+{% load static %}
 {%block content%}
 <head>
 	<title>Home</title>
@@ -8,22 +9,13 @@
 
 <body>
 	<section>
-		<h3> Home </h3>
-		<article>
-			<header>
-					<h2> Title 1 </h2>
-			</header>
-			Text 1
+		<article class="introduction">
+			<h3> Introduction </h3>
+			-type introduction here-
 		</article>
-		<!-- <img class="dom1" src="dom1.jpg" alt="Domotica_in_huis"> -->
-		<article class="question">
-			<header>
-					<h2> Title 2 </h2>
-			</header>
-			Question<br>
-			<p> -The answer </p><br> 
-			Motivation <br>
-			<br> <br> <br> <br>
+		<br><br><br>
+		<article class="picture1">
+			<img class="development_team" src={% static 'main/development_team.jpg' %} alt="Development Team">
 		</article>
 	</section>
 </body>
