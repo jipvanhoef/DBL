@@ -1,13 +1,13 @@
 body {
 	font-size: 16px;
-	background-color: lightgrey;
+	background-color: white;
 }
 
 ul.navbar {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	background-color: black;
+	background-color: red;
 	border: 1px solid #555;
 }
 
