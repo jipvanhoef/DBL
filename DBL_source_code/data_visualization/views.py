@@ -19,7 +19,6 @@ plt.rcParams['lines.markeredgewidth'] = 1  # to fix issue with seaborn box plots
 # hide FutureWarnings, which may show for Seaborn calls in most recent Anaconda
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
-
 from main.views import user_id
 
 def create_graph():

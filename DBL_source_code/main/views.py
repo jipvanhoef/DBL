@@ -5,10 +5,13 @@ from web_project.settings import BASE_DIR
 
 from pathlib import Path
 
+import uuid    
+
 import os
 
 #In this file are the functions to render our pages and load the content
-user_id = None
+user_id = str(uuid.uuid1()) 
+
 #This function renders our html page for the home page
 def home_view(request, *args, **kwargs):
     return render(request, "index.html",{})
@@ -19,8 +22,6 @@ def data_input_view(request, *args, **kwargs):
         form = Data_setForm(request.POST, request.FILES)
         if form.is_valid():
             data = form.save()
-
-            user_id = str(data.id)
 
             root = Path.joinpath(BASE_DIR, "data_set")
 
