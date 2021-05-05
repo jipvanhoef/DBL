@@ -21,6 +21,8 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
 from main.views import user_id
 
+
+#This function grabs the data set of the current user an craetes the visualization
 def create_graph():
     if user_id == None:
         path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
