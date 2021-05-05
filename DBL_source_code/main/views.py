@@ -1,7 +1,14 @@
 from django.shortcuts import render
 from .forms import Data_setForm
-#In this file are the functions to render our pages and load the content
 
+from web_project.settings import BASE_DIR
+
+from pathlib import Path
+
+import os
+
+#In this file are the functions to render our pages and load the content
+user_id = None
 #This function renders our html page for the home page
 def home_view(request, *args, **kwargs):
     return render(request, "index.html",{})
@@ -11,7 +18,20 @@ def data_input_view(request, *args, **kwargs):
     if request.method == "POST":
         form = Data_setForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            data = form.save()
+
+            user_id = str(data.id)
+
+            root = Path.joinpath(BASE_DIR, "data_set")
+
+            user_folder = Path.joinpath(root, user_id)
+
+            os.mkdir(user_folder)
+
+            original_path = Path.joinpath(BASE_DIR, "data_set/data_set.csv")
+            new_path = Path.joinpath(BASE_DIR, "data_set/" + user_id + "/data_set.csv")
+
+            os.rename(original_path,new_path)
     else:
         form = Data_setForm()       
     context = {'form': form}

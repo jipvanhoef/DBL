@@ -20,62 +20,71 @@ plt.rcParams['lines.markeredgewidth'] = 1  # to fix issue with seaborn box plots
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
 
+from main.views import user_id
 
-df_enron = pd.read_csv(Path.joinpath(BASE_DIR, "data_set/enron-v1.csv"), parse_dates=['date']) #reading the enron csv and storing it as dataframe
+def create_graph():
+    if user_id == None:
+        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+    else:
+        path = Path.joinpath(BASE_DIR, "data_set/"+ user_id + "/data_set.csv")
 
-df_enron_sorted = df_enron.sort_values(by='date') #making a sorted dataframe by sorting on the date
-#df_enron_sorted.head() (disregard)
+    df_enron = pd.read_csv(path, parse_dates=['date']) #reading the enron csv and storing it as dataframe
 
-grouped = df_enron_sorted.groupby('date') #making a grouping object to group by date
+    df_enron_sorted = df_enron.sort_values(by='date') #making a sorted dataframe by sorting on the date
+    #df_enron_sorted.head() (disregard)
 
-df_average_sentiment = grouped[['sentiment']].mean() #making a new df where the average sentiment per day is stored
+    grouped = df_enron_sorted.groupby('date') #making a grouping object to group by date
 
-df_average_sentiment.head() 
+    df_average_sentiment = grouped[['sentiment']].mean() #making a new df where the average sentiment per day is stored
 
-fig = go.Figure() #defining a figure
+    df_average_sentiment.head() 
 
-fig.add_trace(
-    go.Scatter(x=list(df_average_sentiment.index), y=list(df_average_sentiment['sentiment']))) #adding the data to the figure
+    fig = go.Figure() #defining a figure
 
-# Set title
-fig.update_layout(
-    title_text="Average sentiment per day across all Enron emails (with interactive timeline)"
-)
+    fig.add_trace(
+        go.Scatter(x=list(df_average_sentiment.index), y=list(df_average_sentiment['sentiment']))) #adding the data to the figure
 
-# Add range slider
-fig.update_layout(
-    xaxis=dict(
-        rangeselector=dict(
-            buttons=list([
-                dict(count=1,
-                     label="1m",
-                     step="month",
-                     stepmode="backward"),
-                dict(count=6,
-                     label="6m",
-                     step="month",
-                     stepmode="backward"),
-                dict(count=1,
-                     label="YTD",
-                     step="year",
-                     stepmode="todate"),
-                dict(count=1,
-                     label="1y",
-                     step="year",
-                     stepmode="backward"),
-                dict(step="all")
-            ])
-        ),
-        rangeslider=dict(
-            visible=True
-        ),
-        type="date"
+    # Set title
+    fig.update_layout(
+        title_text="Average sentiment per day across all Enron emails (with interactive timeline)"
     )
-)
+
+    # Add range slider
+    fig.update_layout(
+        xaxis=dict(
+            rangeselector=dict(
+                buttons=list([
+                    dict(count=1,
+                         label="1m",
+                         step="month",
+                         stepmode="backward"),
+                    dict(count=6,
+                        label="6m",
+                        step="month",
+                        stepmode="backward"),
+                    dict(count=1,
+                        label="YTD",
+                        step="year",
+                        stepmode="todate"),
+                    dict(count=1,
+                         label="1y",
+                         step="year",
+                         stepmode="backward"),
+                    dict(step="all")
+                ])
+            ),
+            rangeslider=dict(
+                visible=True
+            ),
+        type="date"
+        )
+    )
+    return fig
 
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
     #convert the graph to a html displable graph with default width and heigth 
+    fig = create_graph()
     graph = fig.to_html(full_html=False, default_height=500, default_width=700)
     #pass the graph as context to the html file
     context = {'graph': graph}
