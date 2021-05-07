@@ -19,15 +19,24 @@ plt.rcParams['lines.markeredgewidth'] = 1  # to fix issue with seaborn box plots
 # hide FutureWarnings, which may show for Seaborn calls in most recent Anaconda
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
+
 from main.views import user_id
+import os
 
 
 #This function grabs the data set of the current user an craetes the visualization
 def create_graph():
-    if user_id == None:
-        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
-    else:
+    #create the path for the folder where the user data set might be stored
+    user_folder = Path.joinpath(BASE_DIR, "data_set/"+ user_id)
+
+    #check if the user_folder exists
+    if Path.exists(user_folder):
+        #set the path of the csv file to the user folder + data_set.csv
         path = Path.joinpath(BASE_DIR, "data_set/"+ user_id + "/data_set.csv")
+    else:
+        #if the folder does not exist set the path to our default data set
+        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+        
 
     df_enron = pd.read_csv(path, parse_dates=['date']) #reading the enron csv and storing it as dataframe
 
