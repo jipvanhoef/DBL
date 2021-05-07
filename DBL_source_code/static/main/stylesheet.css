@@ -45,22 +45,69 @@ div.choose_data {
 	border: 15px solid white;
 	padding: 50px;
 	margin: 20px;
-  }
+}
 
-  div.contact {
-	  background-color: lightgray;
-	  width: 25%; /* width of the div */
-	  border: 15px solid white; /* thickness border, kind border, color border */
-	  padding: 3%; /* space between text and border */
-	  margin: 4%; /* space between div and left and top edge of screen */
-  }
+div.contact {
+	background-color: lightgray;
+	width: 25%; /* width of the div */
+	border: 15px solid white; /* thickness border, kind border, color border */
+	padding: 3%; /* space between text and border, top-right-bottom-left */
+	margin: 4%; /* space between div and left and top edge of screen */
+}
 
-  article.introduction {
-	  font-family: Georgia, serif; /* style of the font, lettertype */
-	  font-size: 1.5vw; /* size of the text (font) */
-	  font-style: normal; /* normal or italic */
-	  font-weight: normal; /* normal, bold, or numeric */
-	  margin-top: 2%;
-	  margin-left: 10%;
-	  margin-right: 10%;
-  }
+article.introduction {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	font-style: normal; /* normal or italic */
+	font-weight: normal; /* normal, bold, or numeric */
+	margin-top: 2%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+h2.intro_title {
+	font-family: Georgia, serif;
+	font-size: 2vw;
+	margin-top: 5%;
+	text-align: center;
+}
+
+img.development_team_image {
+	border: 2px solid black; /* thickness border, kind border, color border */
+	border-radius: 8px; /* for rounding the edges */
+	padding: 0; /* space between image and border */
+	width: 60%;
+	height: auto; /* automatically adapt height to width */
+	display: block;
+	margin-left: auto;
+	margin-right: auto; /* these 3 lines to center an image */
+	transition: .5s ease; /* time to transition opacity */
+	backface-visibility: hidden;
+}
+
+.team_name {
+	transition: 0.5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%)
+}
+
+article.development_team:hover .development_team_image {
+	opacity: 0.3;
+}
+
+article.development_team:hover .team_name {
+	opacity: 1;
+}
+
+div.text_image {
+	font-family: Georgia, serif;
+	font-size: 16px;
+	color: white;
+	background-color: grey;
+	padding: 16px;
+	border-radius: 8px;
+}
