@@ -2,6 +2,9 @@ from django.shortcuts import render
 from web_project.settings import BASE_DIR
 from pathlib import Path
 
+from main.views import user_id
+import os
+
 import numpy as np #importing numpy and 
 import pandas as pd #importing pandas
 import plotly.graph_objects as go
@@ -19,10 +22,6 @@ plt.rcParams['lines.markeredgewidth'] = 1  # to fix issue with seaborn box plots
 # hide FutureWarnings, which may show for Seaborn calls in most recent Anaconda
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
-
-from main.views import user_id
-import os
-
 
 #This function grabs the data set of the current user an craetes the visualization
 def create_graph():
