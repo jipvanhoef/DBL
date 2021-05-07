@@ -1,6 +1,6 @@
 body {
 	font-size: 16px;
-	background-color: lightgrey;
+	background-color: grey;
 }
 
 ul.navbar {
@@ -39,10 +39,28 @@ img {
 	height: 50%;
 }
 
-div {
+div.choose_data {
 	background-color: lightgrey;
-	width: 300px;
+	width: 200px;
 	border: 15px solid white;
 	padding: 50px;
 	margin: 20px;
+  }
+
+  div.contact {
+	  background-color: lightgray;
+	  width: 25%; /* width of the div */
+	  border: 15px solid white; /* thickness border, kind border, color border */
+	  padding: 3%; /* space between text and border */
+	  margin: 4%; /* space between div and left and top edge of screen */
+  }
+
+  article.introduction {
+	  font-family: Georgia, serif; /* style of the font, lettertype */
+	  font-size: 1.5vw; /* size of the text (font) */
+	  font-style: normal; /* normal or italic */
+	  font-weight: normal; /* normal, bold, or numeric */
+	  margin-top: 2%;
+	  margin-left: 10%;
+	  margin-right: 10%;
   }
