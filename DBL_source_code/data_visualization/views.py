@@ -23,7 +23,7 @@ plt.rcParams['lines.markeredgewidth'] = 1  # to fix issue with seaborn box plots
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
 
-#This function grabs the data set of the current user an craetes the visualization
+#This function grabs the data set of the current user an creates the visualization
 def create_graph():
     #create the path for the folder where the user data set might be stored
     user_folder = Path.joinpath(BASE_DIR, "data_set/"+ user_id)
