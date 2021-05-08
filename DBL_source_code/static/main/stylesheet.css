@@ -3,22 +3,32 @@ body {
 	background-color: grey;
 }
 
+h2 {
+	font-family: Georgia, serif;
+	font-size: 2vw;
+	margin-top: 5%;
+	text-align: center;
+}
+
 ul.navbar {
 	list-style-type: none;
 	margin: 0;
-	padding: 0;
-	background-color: red;
-	border: 1px solid #555;
+	padding: 5%;
+	padding-top: 0;
+	background-color: black;
+	border: 5px solid #555;
 }
 
 li {
 	float: left;
+	width: 25%;
 }
 
 li a {
 	display: block;
 	color: rgb(255, 255, 255);
 	padding: 14px 16px;
+	font-size: 1.7vw;
 	text-decoration: none; /* removes the underline */
 	text-align: center;
 }
@@ -41,10 +51,13 @@ img {
 
 div.choose_data {
 	background-color: lightgrey;
-	width: 200px;
+	width: 50vw;
 	border: 15px solid white;
 	padding: 50px;
-	margin: 20px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3vw;
 }
 
 div.contact {
@@ -65,18 +78,11 @@ article.introduction {
 	margin-right: 10%;
 }
 
-h2.intro_title {
-	font-family: Georgia, serif;
-	font-size: 2vw;
-	margin-top: 5%;
-	text-align: center;
-}
-
 img.development_team_image {
 	border: 2px solid black; /* thickness border, kind border, color border */
 	border-radius: 8px; /* for rounding the edges */
 	padding: 0; /* space between image and border */
-	width: 60%;
+	width: 80%;
 	height: auto; /* automatically adapt height to width */
 	display: block;
 	margin-left: auto;
@@ -110,4 +116,34 @@ div.text_image {
 	background-color: grey;
 	padding: 16px;
 	border-radius: 8px;
+}
+
+article.data_input {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	font-style: normal; /* normal or italic */
+	font-weight: normal; /* normal, bold, or numeric */
+	margin-top: 2%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+article.visualizations {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	font-style: normal; /* normal or italic */
+	font-weight: normal; /* normal, bold, or numeric */
+	margin-top: 2%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+article.contact {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	font-style: normal; /* normal or italic */
+	font-weight: normal; /* normal, bold, or numeric */
+	margin-top: 2%;
+	margin-left: 10%;
+	margin-right: 10%;
 }

@@ -1,20 +1,17 @@
 {%extends 'base.html'%}
 {%block content%}
 <head>
-	<title>Data Input</title>
+	<title> Data Input </title>
 </head>
-
 <body>
 	<section>
-		<h3> Data Input </h3>
-		<p>
-		Getting bored of just looking at the default data set visualisations? Well in this page you can add your own data set and the visualisations will match that data set!
-		</p>
-	
-
+		<h2> Data Input </h2>
+		<article class="data_input">
+			Getting bored of just looking at the default data set visualisations? Well in this page you can add your own data set and the visualisations will match that data set!
+		</article>
 	</section>
 	<div class="choose_data">
-	  Just import the data set you want inputted and the visualisation will alter depending on the data set (as long as the data set is the same structure as the enron set)
+		Here you can choose a file and import it. The visualizations will alter depending on the input data. Keep in mind that the data set has to have the same structure as the enron set.
 		<form method="POST" enctype="multipart/form-data"8> {% csrf_token %}
 			{{form.as_p}}
 			<input type="submit" value="Save">
