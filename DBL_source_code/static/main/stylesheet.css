@@ -1,6 +1,6 @@
 body {
 	font-size: 16px;
-	background-color: grey;
+	background-color: lightgrey;
 }
 
 h2 {
@@ -65,7 +65,8 @@ div.contact {
 	width: 25%; /* width of the div */
 	border: 15px solid white; /* thickness border, kind border, color border */
 	padding: 3%; /* space between text and border, top-right-bottom-left */
-	margin: 4%; /* space between div and left and top edge of screen */
+	display: block;
+	margin: 3vw auto; /* space between div and left and top edge of screen */
 }
 
 article.introduction {
@@ -146,6 +147,12 @@ article.contact {
 	margin-top: 2%;
 	margin-left: 10%;
 	margin-right: 10%;
+}
+
+article.visualization_1 {
+	display: block;
+	margin-left: auto;
+	margin-right: auto; /* these 3 lines to center an image */
 }
 
 article.visualization_2 {
