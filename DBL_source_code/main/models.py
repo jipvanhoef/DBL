@@ -15,5 +15,5 @@ def file_name(instance, filename):
 class Data_set(models.Model):
     #Add a File field to upload the files
     #and set the upload location to the return of the file_name function where the arguments are supplied by django itself
-    data = models.FileField(upload_to = file_name)
+    data = models.FileField(upload_to = file_name, max_length=255)
 
