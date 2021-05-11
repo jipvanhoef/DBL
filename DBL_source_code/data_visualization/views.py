@@ -2,8 +2,11 @@ from django.shortcuts import render
 from web_project.settings import BASE_DIR
 from pathlib import Path
 
-from main.views import user_id
+from main.models import user_id, Data_set
+
 import os
+
+import sqlite3
 
 import numpy as np #importing numpy and 
 import pandas as pd #importing pandas
@@ -25,17 +28,21 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 
 #This function grabs the data set of the current user an creates the visualization
 def create_graph():
-    #create the path for the folder where the user data set might be stored
-    user_folder = Path.joinpath(BASE_DIR, "data_set/"+ user_id)
+    # #create the path for the folder where the user data set might be stored
+    # user_folder = Path.joinpath(BASE_DIR, "data_set/"+ user_id)
 
-    #check if the user_folder exists
-    if Path.exists(user_folder):
-        #set the path of the csv file to the user folder + data_set.csv
-        path = Path.joinpath(BASE_DIR, "data_set/"+ user_id + "/data_set.csv")
-    else:
-        #if the folder does not exist set the path to our default data set
+    # #check if the user_folder exists
+    # if Path.exists(user_folder):
+    #     #set the path of the csv file to the user folder + data_set.csv
+    #     path = Path.joinpath(BASE_DIR, "data_set/"+ user_id + "/data_set.csv")
+    # else:
+    #     #if the folder does not exist set the path to our default data set
+    #     path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+
+    try:
+        path = Data_set.objects.get(user_id= user_id).data.path
+    except:
         path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
-        
 
     df_enron = pd.read_csv(path, parse_dates=['date']) #reading the enron csv and storing it as dataframe
 

@@ -10,8 +10,7 @@ import uuid
 import os
 
 #In this file are the functions to render our pages and load the content
-#create for each user a unique id to reqonize wich user is visualizing which data set
-user_id = str(uuid.uuid1()) 
+
 
 #This function renders our html page for the home page
 def home_view(request, *args, **kwargs):
@@ -26,24 +25,8 @@ def data_input_view(request, *args, **kwargs):
 
         #check if the form is valid
         if form.is_valid():
-
             #summit the form
             data = form.save()
-            #create the root varible from the main folder with the data sets
-            root = Path.joinpath(BASE_DIR, "data_set")
-            #create a new path for the user using their unique id
-            user_folder = Path.joinpath(root, user_id)
-            #create a new folder at the user_folder path
-            os.mkdir(user_folder)
-
-            #The path where their summitted file is temporarly stored
-            original_path = Path.joinpath(BASE_DIR, "data_set/data_set.csv")
-
-            #The new path where their summitted file is stored
-            new_path = Path.joinpath(BASE_DIR, "data_set/" + user_id + "/data_set.csv")
-
-            #Put the their file in their user folder
-            os.rename(original_path,new_path)
     else:
         #set the form to a empty Data_setForm
         form = Data_setForm() 
