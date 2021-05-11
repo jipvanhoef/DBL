@@ -27,6 +27,13 @@ def data_input_view(request, *args, **kwargs):
         if form.is_valid():
             #summit the form
             data = form.save()
+            #lists all files that are summited and stored in the temp folder
+            files = os.listdir(str(Path.joinpath(BASE_DIR, 'temp')))
+            #loop trough the files in the temp folder
+            for file in files:
+                #delete each file form the temp folder
+                os.unlink(str(Path.joinpath(BASE_DIR, 'temp/' + file)))
+
     else:
         #set the form to a empty Data_setForm
         form = Data_setForm() 
