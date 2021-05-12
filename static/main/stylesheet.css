@@ -1,6 +1,19 @@
+header {
+	background-color:  #6D8890;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
 body {
 	font-size: 16px;
-	background-color: grey;
+	background-color: white;
+	margin: 0;
+}
+
+h1 {
+	margin: 0;
+	padding: 2vw;
 }
 
 h2 {
@@ -15,8 +28,7 @@ ul.navbar {
 	margin: 0;
 	padding: 5%;
 	padding-top: 0;
-	background-color: black;
-	border: 5px solid #555;
+	background-color: #A89584;
 }
 
 li {
@@ -36,13 +48,11 @@ li a {
 
 /* style for the navbar item that is active */
 li a.active {
-	background-color: pink;
+	background-color: grey;
 }
 
 /* style for the navbar item that is hovered by the mouse */
-li a:hover:not(.active) {
-	background-color: orange;
-}
+/* li a:hover:not(.active) {} */
 
 img {
 	width: 50%;
@@ -93,10 +103,11 @@ img.development_team_image {
 }
 
 .team_name {
+	color: rgb(255, 255, 255);
 	transition: 0.5s ease;
 	opacity: 0;
 	position: absolute;
-	top: 50%;
+	top: 45vw;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%)
