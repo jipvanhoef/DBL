@@ -60,23 +60,31 @@ img {
 }
 
 div.choose_data {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.2vw; /* size of the text (font) */
+	letter-spacing: 1px; /* space between letters*/
+	line-height: 1.2; /* height between lines*/
 	background-color: lightgrey;
-	width: 50vw;
-	border: 15px solid white;
+	width: 40%;
+	border: 5px solid #6D8890;
 	padding: 50px;
 	display: block;
-	margin-left: auto;
+	margin-left: 10%;
 	margin-right: auto;
 	margin-top: 3vw;
 }
 
 div.contact {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	letter-spacing: 1px; /* space between letters*/
+	line-height: 1.6; /* height between lines*/
 	background-color: lightgray;
-	width: 25%; /* width of the div */
-	border: 15px solid white; /* thickness border, kind border, color border */
+	width: 50%; /* width of the div */
+	border: 10px solid #6D8890; /* thickness border, kind border, color border */
 	padding: 3%; /* space between text and border, top-right-bottom-left */
 	display: block;
-	margin: 3vw auto; /* space between div and left and top edge of screen */
+	margin: 3vw 40% 3vw 10%; /* space between div and left and top edge of screen */
 }
 
 article.introduction {
