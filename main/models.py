@@ -2,13 +2,15 @@ from django.db import models
 from web_project.settings import BASE_DIR
 from pathlib import Path
 import uuid  
-
+import os
 
 user_id = str(uuid.uuid1())
 # Create your models here.
 def file_name(instance, filename):
     #create the temporary path
     path  = Path.joinpath(BASE_DIR, 'temp')
+    #create the temporary folder
+    os.mkdir(path= path)
     #return the temporary path 
     return path
 
