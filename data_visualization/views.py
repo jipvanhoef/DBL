@@ -96,7 +96,7 @@ def create_line_graph():
     )
     return fig
 def create_network_graph():
-        #Chechk if the user has uploaded a file by quering on the user_id and if a exception occurs set the path
+    #Chechk if the user has uploaded a file by quering on the user_id and if a exception occurs set the path
     #to the default csv file
     try:
         path = Data_set.objects.get(user_id= user_id).data.path
@@ -175,7 +175,7 @@ def create_network_graph():
 
     #make the graph framework with layout settings
     fig = go.Figure(layout=go.Layout(
-                    title='<br>Enron email traffic',
+                    title="network graph of all email data of enron per year <br>year visible: "+years[0].astype(str),
                     titlefont=dict(size=16),
                     showlegend=True,
                     hovermode='closest',
@@ -251,7 +251,7 @@ def create_network_graph():
         year = dict(
             method="update",
             args=[{"visible": [False] * yearscount + [True]*jobtitlescount},
-                {"title": "year visible: " + years[i].astype(str)}],
+                {"title": "network graph of all email data of enron per year <br>year visible: " + years[i].astype(str)}],
             label = yearsstring[i], # layout attribute
         )
         year["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"
