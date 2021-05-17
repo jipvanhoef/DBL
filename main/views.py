@@ -28,7 +28,7 @@ def data_input_view(request, *args, **kwargs):
             #summit the form
             data = form.save()
             #delete the temp folder 
-            os.unlink(path=Path.joinpath(BASE_DIR, 'temp'))
+            os.rmdir(path=Path.joinpath(BASE_DIR, 'temp'))
 
     else:
         #set the form to a empty Data_setForm
