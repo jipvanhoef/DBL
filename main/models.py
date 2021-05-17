@@ -9,6 +9,7 @@ user_id = str(uuid.uuid1())
 def file_name(instance, filename):
     #create the temporary path
     path  = Path.joinpath(BASE_DIR, 'temp')
+    #create the temporary folder
     os.mkdir(path= path)
     #return the temporary path 
     return path
