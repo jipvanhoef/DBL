@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import mimetypes
+# import mimetypes
 
-mimetypes.add_type('text/css', '.css', True)
-mimetypes.add_type('text/html', '.html', True)
-mimetypes.add_type('image/png', '.png', True)
+# mimetypes.add_type('text/css', '.css', True)
+# mimetypes.add_type('text/html', '.html', True)
+# mimetypes.add_type('image/png', '.png', True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
