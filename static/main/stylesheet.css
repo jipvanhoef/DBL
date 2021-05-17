@@ -6,21 +6,39 @@ header {
 }
 
 body {
-	font-size: 16px;
+	font-family: Georgia, serif;
+	font-size: 1.5vw;
 	background-color: white;
 	margin: 0;
+	line-height: 1.5;
+}
+
+div {
+	display: block;
 }
 
 h1 {
 	margin: 0;
-	padding: 2vw;
+	padding: 1vw;
+	font-family: Georgia, serif;
+	font-size: 2vw;
 }
 
 h2 {
 	font-family: Georgia, serif;
 	font-size: 2vw;
-	margin-top: 5%;
+	margin-top: 2%;
 	text-align: center;
+}
+
+h3 {
+	display: block;
+    font-size:1.5vw;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
 ul.navbar {
@@ -39,7 +57,7 @@ li {
 li a {
 	display: block;
 	color: rgb(255, 255, 255);
-	padding: 14px 16px;
+	padding: 1.5vw;
 	font-size: 1.7vw;
 	text-decoration: none; /* removes the underline */
 	text-align: center;
@@ -60,23 +78,31 @@ img {
 }
 
 div.choose_data {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.2vw; /* size of the text (font) */
+	letter-spacing: 1px; /* space between letters*/
+	line-height: 1.2; /* height between lines*/
 	background-color: lightgrey;
-	width: 50vw;
-	border: 15px solid white;
+	width: 40%;
+	border: 5px solid #6D8890;
 	padding: 50px;
 	display: block;
-	margin-left: auto;
+	margin-left: 10%;
 	margin-right: auto;
 	margin-top: 3vw;
 }
 
-div.contact {
+div.contact_us { /* NOT USED YET */
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	letter-spacing: 1px; /* space between letters*/
+	line-height: 1.6; /* height between lines*/
 	background-color: lightgray;
-	width: 25%; /* width of the div */
-	border: 15px solid white; /* thickness border, kind border, color border */
+	width: 50%; /* width of the div */
+	border: 10px solid #6D8890; /* thickness border, kind border, color border */
 	padding: 3%; /* space between text and border, top-right-bottom-left */
 	display: block;
-	margin: 3vw auto; /* space between div and left and top edge of screen */
+	margin: 3vw 40% 3vw 10%; /* space between div and left and top edge of screen */
 }
 
 article.introduction {
@@ -161,14 +187,53 @@ article.contact {
 }
 
 article.visualization_1 {
-	display: block;
-	margin-left: auto;
-	margin-right: auto; /* these 3 lines to center an image */
+	border: 5px solid #6D8890;
+	float: left;
+	width: 42%;
+	height: auto;
+	padding: 1%;
+	margin: 2%;
 }
 
 article.visualization_2 {
-	border: 3px solid green;
-	display: block;
-	margin-left: auto;
-	margin-right: auto; /* these 3 lines to center an image */
+	border: 5px solid #6D8890;
+	float: right;
+	width: 42%;
+	height: auto;
+	padding: 1%;
+	margin: 2%;
+}
+
+
+/* Contact page */
+
+div.contact {
+    margin: 0 auto;
+    width: 80vw;
+}
+
+div.contact_columns {
+	padding-top: 0;
+	display: flex;
+}
+
+div.column_left {
+	width: 60%;
+	margin-right: 3%;
+}
+
+div.column_right {
+	width: 35%;
+	margin-left: 2%;
+}
+
+div.row {
+	padding-bottom: 2%;
+}
+
+img.contact_picture {
+	border: 5px double black;
+	width: 60%;
+	height: auto;
+	margin: -2% 25%;
 }
