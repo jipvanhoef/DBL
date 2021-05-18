@@ -270,12 +270,14 @@ def create_network_graph():
 
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
-    #convert the graph to a html displable graph with default width and heigth 
-    fig = threading.Thread(target =create_network_graph).start()
-    line_fig = create_line_graph()
+    #start 2 threads for both graphs
+    line_fig = threading.Thread(target =create_line_graph).start()
+    network_fig = threading.Thread(target =create_network_graph).start()
+    #wait untill both threads are done
+    line_fig.join()
+    network_fig.join()
+    #convert both graphs to html
     line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
-    #convert the network graph to html
-    network_fig = fig
     network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
     #pass the graph as context to the html file
     context = {'line_graph': line_graph, 'network_graph': network_graph}
