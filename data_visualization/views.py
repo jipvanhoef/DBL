@@ -7,6 +7,7 @@ from main.models import user_id, Data_set
 import os
 import datetime
 import sqlite3
+import threading
 
 import numpy as np #importing numpy 
 import pandas as pd #importing pandas
@@ -273,7 +274,7 @@ def visualization_view(request, *args, **kwargs):
     line_fig = create_line_graph()
     line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
     #convert the network graph to html
-    network_fig = create_network_graph()
+    network_fig = threading.Thread(target =create_network_graph).start()
     network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
     #pass the graph as context to the html file
     context = {'line_graph': line_graph, 'network_graph': network_graph}
