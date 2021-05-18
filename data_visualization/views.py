@@ -273,9 +273,12 @@ def create_network_graph():
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
     #convert the graph to a html displable graph with default width and heigth 
-    fig = create_line_graph()
-    graph = fig.to_html(full_html=False, default_height=500, default_width=700)
+    line_fig = create_line_graph()
+    line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
+    
+    network_fig = create_network_graph()
+    network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
     #pass the graph as context to the html file
-    context = {'graph': graph}
+    context = {'line_graph': line_graph, 'network_graph': network_graph}
     #render the html file and load in the context
     return render(request, "visualizations.html", context)
