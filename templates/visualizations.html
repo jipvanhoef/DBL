@@ -18,6 +18,13 @@
       </article>
     </section>
     <section>
+      <article class="visualization_1">
+        {% if network_graph %}
+        {{ network_graph|safe }}
+        {% else %}
+        <p>No graph was provided.</p>
+        {% endif %}
+      </article>
       <article class="visualization_2">
         {% if graph %}
         {{ graph|safe }}
