@@ -275,7 +275,7 @@ def visualization_view(request, *args, **kwargs):
     #convert the graph to a html displable graph with default width and heigth 
     line_fig = create_line_graph()
     line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
-    
+    #convert the network graph to html
     network_fig = create_network_graph()
     network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
     #pass the graph as context to the html file
