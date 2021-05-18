@@ -216,15 +216,12 @@ def create_network_graph():
                     line=dict(width=0))))
     test = 0
     #add the mails as connections to the trace with the corresponding year   
-    for i in range(yearscount):
-
-        #if fig.data[i]['name']==years[i].astype(str):
-            for edge in G.edges(keys=True):
-                if G.edges[edge]['year']==years[i]:
-                    x0, y0 = G.nodes[edge[0]]['pos']
-                    x1, y1 = G.nodes[edge[1]]['pos']
-                    fig.data[i]['x'] += tuple([x0, x1, None])
-                    fig.data[i]['y'] += tuple([y0, y1, None])
+    for edge in G.edges(keys=True):
+        year = years.index(G.edges[edge]['year'])
+        x0, y0 = G.nodes[edge[0]]['pos']
+        x1, y1 = G.nodes[edge[1]]['pos']
+        fig.data[year]['x'] += tuple([x0, x1, None])
+        fig.data[year]['y'] += tuple([y0, y1, None])
 
     fig.data[0].visible = True
     #add every person as a node to the trace with the corresponding job title
