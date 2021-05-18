@@ -270,10 +270,12 @@ def create_network_graph():
 
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
-    #start 2 threads for both graphs
-    line_fig = threading.Thread(target =create_line_graph).start()
-    network_fig = threading.Thread(target =create_network_graph).start()
-    
+    #make 2 threads for both graphs
+    line_fig = threading.Thread(target =create_line_graph, args=())
+    network_fig = threading.Thread(target =create_network_graph, args=())
+    #start both threads
+    line_fig.start()
+    network_fig.start()
     #wait untill both threads are done
     line_fig.join()
     network_fig.join()
