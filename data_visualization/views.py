@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render
 from web_project.settings import BASE_DIR
 from pathlib import Path
@@ -34,6 +35,9 @@ plt.rcParams['lines.markeredgewidth'] = 1  # to fix issue with seaborn box plots
 # hide FutureWarnings, which may show for Seaborn calls in most recent Anaconda
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
+
+line_graph = None
+network_graph = None
 
 #This function grabs the data set of the current user an creates the visualization
 def create_line_graph(path):
@@ -259,12 +263,18 @@ def create_network_graph(path):
 
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
-    path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
-    #network_fig = create_network_graph(path=path) 
-    line_fig = create_line_graph(path= path)
-    line_graph = line_fig.to_html(full_html=False)
-    #network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
-    #pass the graph as context to the html file
-    context = {'line_graph': line_graph}
+    context = {"line_graph": line_graph, "network_graph": network_graph}
     #render the html file and load in the context
     return render(request, "visualizations.html", context)
+
+def load_line_graph(request):
+    path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+    line_fig = create_line_graph(path= path)
+    line_graph = line_fig.to_html(full_html=False)
+    visualization_view(request= request)
+
+def load_network_graph(request):
+    path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+    network_fig = create_network_graph(path= path)
+    network_graph = network_fig.to_html(full_html = False) 
+    visualization_view(request= request)
