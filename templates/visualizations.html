@@ -15,7 +15,6 @@
     </section>
     <section>
       <article class="visualization_1">
-        <button class="button_1" type="button" onclick="location.href={% url 'visualization1'%}">Visualization 1</button>
         {% if network_graph %}
         {{ network_graph|safe }}
         {% else %}
@@ -23,7 +22,6 @@
         {% endif %}
       </article>
       <article class="visualization_2">
-        <button class="button_2" type="button" onclick="">Visualization 2</button>
         {% if line_graph %}
         {{ line_graph|safe }}
         {% else %}
