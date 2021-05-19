@@ -242,12 +242,28 @@ img.contact_picture {
 /* Visualizations page */
 
 button {
-	border: 2px double black;
-	border-color: red;
-	/*color: white;
+	display: block;
+	border: 3px solid black;
+	border-color: black;
+	background-color: grey;
+	border-radius: 30px;
+	color: black;
+	margin: 2% 30%;
+	color: white;
 	padding: 2% 4%;
+	font-size: 100%;
 	text-align: center;
 	text-decoration: none;
+	cursor: pointer;
+	transition-duration: 0.3s;
+}
 
-	cursor: pointer;*/
+.button_1:hover {
+	background-color: #4CAF50;
+	color: white;
+}
+
+.button_2:hover {
+	background-color: #4CAF50;
+	color: white;
 }
