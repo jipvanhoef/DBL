@@ -260,9 +260,9 @@ def create_network_graph(path):
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
     path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
-    #network_fig = create_network_graph(path=path)
+    #network_fig = create_network_graph(path=path) 
     line_fig = create_line_graph(path= path)
-    line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
+    line_graph = line_fig.to_html(full_html=False)
     #network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
     #pass the graph as context to the html file
     context = {'line_graph': line_graph}
