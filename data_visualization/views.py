@@ -260,15 +260,17 @@ def create_network_graph(path):
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
     #make 2 threads for both graphs
-    line_fig = threading.Thread(target =create_line_graph, args=())
+    # line_fig = threading.Thread(target =create_line_graph, args=())
     # network_fig = threading.Thread(target =create_network_graph, args=())
     #start both threads
-    line_fig.start()
+    # line_fig.start()
     # network_fig.start()
     #wait untill both threads are done
-    line_fig.join()
+    # line_fig.join()
     # network_fig.join()
     #convert both graphs to html
+    path = Path.joinpath(BASE_DIR, "data_set/enron-vs.csv")
+    line_fig = create_line_graph(path= path)
     line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
     # network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
     #pass the graph as context to the html file
