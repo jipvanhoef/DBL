@@ -7,6 +7,7 @@ from main.models import user_id, Data_set
 import os
 import datetime
 import sqlite3
+import threading
 
 import numpy as np #importing numpy 
 import pandas as pd #importing pandas
@@ -35,13 +36,7 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
 
 #This function grabs the data set of the current user an creates the visualization
-def create_line_graph():
-    #Chechk if the user has uploaded a file by quering on the user_id and if a exception occurs set the path
-    #to the default csv file
-    try:
-        path = Data_set.objects.get(user_id= user_id).data.path
-    except:
-        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+def create_line_graph(path):
 
     df_enron = pd.read_csv(path, parse_dates=['date']) #reading the enron csv and storing it as dataframe
 
@@ -95,13 +90,8 @@ def create_line_graph():
         )
     )
     return fig
-def create_network_graph():
-    #Chechk if the user has uploaded a file by quering on the user_id and if a exception occurs set the path
-    #to the default csv file
-    try:
-        path = Data_set.objects.get(user_id= user_id).data.path
-    except:
-        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+def create_network_graph(path):
+    
 
     df_enron = pd.read_csv(path, parse_dates=['date']) #reading the enron csv and storing it as dataframe
     #get a list of all the years in the dataset
@@ -150,7 +140,7 @@ def create_network_graph():
         G.nodes[i]['sentiment'] = df_enron_to['mean sentiment'].loc[i-1]
         
     for i,j in df.iterrows(): #adding the edges
-        G.add_edges_from([(j["fromId"],j["toId"], {"year": df['year'].loc[i]})])
+        G.add_edges_from([(j["fromId"],j["toId"], {"year": df['year'].loc[i]})]) 
         
     #assigning a position to each node for plotting
     pos = nx.fruchterman_reingold_layout(G, k =1)
@@ -216,15 +206,12 @@ def create_network_graph():
                     line=dict(width=0))))
     test = 0
     #add the mails as connections to the trace with the corresponding year   
-    for i in range(yearscount):
-
-        #if fig.data[i]['name']==years[i].astype(str):
-            for edge in G.edges(keys=True):
-                if G.edges[edge]['year']==years[i]:
-                    x0, y0 = G.nodes[edge[0]]['pos']
-                    x1, y1 = G.nodes[edge[1]]['pos']
-                    fig.data[i]['x'] += tuple([x0, x1, None])
-                    fig.data[i]['y'] += tuple([y0, y1, None])
+    for edge in G.edges(keys=True):
+        year = years.index(G.edges[edge]['year'])
+        x0, y0 = G.nodes[edge[0]]['pos']
+        x1, y1 = G.nodes[edge[1]]['pos']
+        fig.data[year]['x'] += tuple([x0, x1, None])
+        fig.data[year]['y'] += tuple([y0, y1, None])
 
     fig.data[0].visible = True
     #add every person as a node to the trace with the corresponding job title
@@ -272,10 +259,21 @@ def create_network_graph():
 
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
-    #convert the graph to a html displable graph with default width and heigth 
-    fig = create_line_graph()
-    graph = fig.to_html(full_html=False, default_height=500, default_width=700)
+    #make 2 threads for both graphs
+    # line_fig = threading.Thread(target =create_line_graph, args=())
+    # network_fig = threading.Thread(target =create_network_graph, args=())
+    #start both threads
+    # line_fig.start()
+    # network_fig.start()
+    #wait untill both threads are done
+    # line_fig.join()
+    # network_fig.join()
+    #convert both graphs to html
+    path = Path.joinpath(BASE_DIR, "data_set/enron-vs.csv")
+    line_fig = create_line_graph(path= path)
+    line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
+    # network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
     #pass the graph as context to the html file
-    context = {'graph': graph}
+    context = {'line_graph': line_graph}
     #render the html file and load in the context
     return render(request, "visualizations.html", context)
