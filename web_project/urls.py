@@ -29,5 +29,5 @@ urlpatterns = [
     path('visualization/', visualization_view, name = 'visualization'),
     path('contact/', contact_view, name = "contact"),
     path('admin/', admin.site.urls),
-    
+    path('visualization1', views.visualization1, name='visualization1')
 ]

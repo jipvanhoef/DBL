@@ -5,7 +5,6 @@
   <head>
       <meta charset="utf-8">
       <title>Visualizations</title>
-      
   </head>
   <body>
     <section>
@@ -16,7 +15,7 @@
     </section>
     <section>
       <article class="visualization_1">
-        <button class="button_1" type="button" onclick="">Visualization 1</button>
+        <button class="button_1" type="button" onclick="location.href={% url 'visualization1'%}">Visualization 1</button>
         {% if network_graph %}
         {{ network_graph|safe }}
         {% else %}
