@@ -35,13 +35,7 @@ import warnings
 warnings.filterwarnings("ignore", category=FutureWarning) 
 
 #This function grabs the data set of the current user an creates the visualization
-def create_line_graph():
-    #Chechk if the user has uploaded a file by quering on the user_id and if a exception occurs set the path
-    #to the default csv file
-    try:
-        path = Data_set.objects.get(user_id= user_id).data.path
-    except:
-        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+def create_line_graph(path):
 
     df_enron = pd.read_csv(path, parse_dates=['date']) #reading the enron csv and storing it as dataframe
 
@@ -95,13 +89,8 @@ def create_line_graph():
         )
     )
     return fig
-def create_network_graph():
-    #Chechk if the user has uploaded a file by quering on the user_id and if a exception occurs set the path
-    #to the default csv file
-    try:
-        path = Data_set.objects.get(user_id= user_id).data.path
-    except:
-        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+def create_network_graph(path):
+    
 
     df_enron = pd.read_csv(path, parse_dates=['date']) #reading the enron csv and storing it as dataframe
     #get a list of all the years in the dataset
@@ -150,7 +139,7 @@ def create_network_graph():
         G.nodes[i]['sentiment'] = df_enron_to['mean sentiment'].loc[i-1]
         
     for i,j in df.iterrows(): #adding the edges
-        G.add_edges_from([(j["fromId"],j["toId"], {"year": df['year'].loc[i]})])
+        G.add_edges_from([(j["fromId"],j["toId"], {"year": df['year'].loc[i]})]) 
         
     #assigning a position to each node for plotting
     pos = nx.fruchterman_reingold_layout(G, k =1)
@@ -215,7 +204,7 @@ def create_network_graph():
                     size=15,
                     line=dict(width=0))))
     test = 0
-    #add the mails as connections to the trace with the corresponding year   
+    #add the mails as connections to the trace with the corresponding year   #takes way to long to run
     for i in range(yearscount):
 
         #if fig.data[i]['name']==years[i].astype(str):
@@ -272,13 +261,19 @@ def create_network_graph():
 
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
+    #Check if the user has uploaded a file by quering on the user_id and if a exception occurs set the path
+    #to the default csv file
+    try:
+        path = Data_set.objects.get(user_id= user_id).data.path
+    except:
+        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
     #convert the graph to a html displable graph with default width and heigth 
-    line_fig = create_line_graph()
-    line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
+    line_fig = create_line_graph(path)
+    line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=600)
     #convert the network graph to html
-    network_fig = create_network_graph()
-    network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
+    # network_fig = create_network_graph(path)
+    # network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=600)
     #pass the graph as context to the html file
-    context = {'line_graph': line_graph, 'network_graph': network_graph}
+    context = {'line_graph': line_graph}
     #render the html file and load in the context
     return render(request, "visualizations.html", context)
