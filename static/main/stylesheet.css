@@ -237,3 +237,16 @@ img.contact_picture {
 	height: auto;
 	margin: -2% 25%;
 }
+
+
+/* Visualizations page */
+
+button {
+	border: none;
+	color: white;
+	padding: 2% 4%;
+	text-align: center;
+	text-decoration: none;
+
+	cursor: pointer;
+}
