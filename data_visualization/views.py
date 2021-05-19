@@ -7,6 +7,7 @@ from main.models import user_id, Data_set
 import os
 import datetime
 import sqlite3
+import threading
 
 import numpy as np #importing numpy 
 import pandas as pd #importing pandas
@@ -204,16 +205,13 @@ def create_network_graph(path):
                     size=15,
                     line=dict(width=0))))
     test = 0
-    #add the mails as connections to the trace with the corresponding year   #takes way to long to run
-    for i in range(yearscount):
-
-        #if fig.data[i]['name']==years[i].astype(str):
-            for edge in G.edges(keys=True):
-                if G.edges[edge]['year']==years[i]:
-                    x0, y0 = G.nodes[edge[0]]['pos']
-                    x1, y1 = G.nodes[edge[1]]['pos']
-                    fig.data[i]['x'] += tuple([x0, x1, None])
-                    fig.data[i]['y'] += tuple([y0, y1, None])
+    #add the mails as connections to the trace with the corresponding year   
+    for edge in G.edges(keys=True):
+        year = years.index(G.edges[edge]['year'])
+        x0, y0 = G.nodes[edge[0]]['pos']
+        x1, y1 = G.nodes[edge[1]]['pos']
+        fig.data[year]['x'] += tuple([x0, x1, None])
+        fig.data[year]['y'] += tuple([y0, y1, None])
 
     fig.data[0].visible = True
     #add every person as a node to the trace with the corresponding job title
@@ -261,18 +259,18 @@ def create_network_graph(path):
 
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
-    #Check if the user has uploaded a file by quering on the user_id and if a exception occurs set the path
-    #to the default csv file
-    try:
-        path = Data_set.objects.get(user_id= user_id).data.path
-    except:
-        path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
-    #convert the graph to a html displable graph with default width and heigth 
-    line_fig = create_line_graph(path)
-    line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=600)
-    #convert the network graph to html
-    # network_fig = create_network_graph(path)
-    # network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=600)
+    #make 2 threads for both graphs
+    line_fig = threading.Thread(target =create_line_graph, args=())
+    # network_fig = threading.Thread(target =create_network_graph, args=())
+    #start both threads
+    line_fig.start()
+    # network_fig.start()
+    #wait untill both threads are done
+    line_fig.join()
+    # network_fig.join()
+    #convert both graphs to html
+    line_graph = line_fig.to_html(full_html=False, default_height=500, default_width=700)
+    # network_graph = network_fig.to_html(full_html= False, default_height=500, default_width=700)
     #pass the graph as context to the html file
     context = {'line_graph': line_graph}
     #render the html file and load in the context
