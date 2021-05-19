@@ -242,11 +242,12 @@ img.contact_picture {
 /* Visualizations page */
 
 button {
-	border: none;
-	color: white;
+	border: 2px double black;
+	border-color: red;
+	/*color: white;
 	padding: 2% 4%;
 	text-align: center;
 	text-decoration: none;
 
-	cursor: pointer;
+	cursor: pointer;*/
 }
