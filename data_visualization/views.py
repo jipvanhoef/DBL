@@ -264,11 +264,18 @@ def create_network_graph(path):
 
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
+    #search for the correct file in the database by the userid
     try:
+        #set the path to the uploaded database of this user
          path = Data_set.objects.get(user_id= user_id).data.path
     except:
+        #set the path to our default database
          path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv") 
+
+    #call the function to create the line graph and convert it into html
     line_graph = create_line_graph(path= path).to_html(full_html = False)
+
+    #fill a libary with the extra elements that needs to be loaded into the html
     context = {"line_graph": line_graph, "network_graph": network_graph}
     #render the html file and load in the context
     return render(request, "visualizations.html", context)

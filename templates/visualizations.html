@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {%extends 'base.html'%}
+{% load static %}
 {%block content%}
 <html lang="en">
   <head>
@@ -15,11 +16,7 @@
     </section>
     <section>
       <article class="visualization_1">
-        {% if network_graph %}
-        {{ network_graph|safe }}
-        {% else %}
-        <p>No graph was provided.</p>
-        {% endif %}
+        <img class="image_visualization_1" src= "{% static 'main/visualization_2.png' %}" alt="visualization_1">
       </article>
       <article class="visualization_2">
         {% if line_graph %}
