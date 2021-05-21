@@ -166,15 +166,8 @@ article.data_input {
 	margin-right: 10%;
 }
 
-article.visualizations {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.5vw; /* size of the text (font) */
-	font-style: normal; /* normal or italic */
-	font-weight: normal; /* normal, bold, or numeric */
-	margin-top: 2%;
-	margin-left: 10%;
-	margin-right: 10%;
-}
+
+/* Contact page */
 
 article.contact {
 	font-family: Georgia, serif; /* style of the font, lettertype */
@@ -185,27 +178,6 @@ article.contact {
 	margin-left: 10%;
 	margin-right: 10%;
 }
-
-article.visualization_1 {
-	border: 5px solid #6D8890;
-	float: left;
-	width: 42%;
-	height: auto;
-	padding: 1%;
-	margin: 2%;
-}
-
-article.visualization_2 {
-	border: 5px solid #6D8890;
-	float: right;
-	width: 42%;
-	height: auto;
-	padding: 1%;
-	margin: 2%;
-}
-
-
-/* Contact page */
 
 div.contact {
     margin: 0 auto;
@@ -240,6 +212,39 @@ img.contact_picture {
 
 
 /* Visualizations page */
+
+article.visualizations {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	font-style: normal; /* normal or italic */
+	font-weight: normal; /* normal, bold, or numeric */
+	margin-top: 2%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+article.visualization_1 {
+	border: 5px solid #6D8890;
+	float: left;
+	width: 42%;
+	height: auto;
+	padding: 1%;
+	margin: 2%;
+}
+
+article.visualization_2 {
+	border: 5px solid #6D8890;
+	float: right;
+	width: 42%;
+	height: auto;
+	padding: 1%;
+	margin: 2%;
+}
+
+img.image_visualization_1 {
+	width: 100%;
+	height: auto;
+}
 
 button {
 	display: block;
