@@ -1,0 +1,2 @@
+Thank you for downloading viskit.
+This tool wil accept your data input as a .csv file and visualize the data for you. There is no need to download or install complicated tools, you can just go to our site: https://viskit.herokuapp.com/
