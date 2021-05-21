@@ -272,15 +272,16 @@ def visualization_view(request, *args, **kwargs):
     context = {"line_graph": line_graph, "network_graph": network_graph}
     #render the html file and load in the context
     return render(request, "visualizations.html", context)
+    
+#WORK IN PROGRESS
+# def load_line_graph(request):
+#     path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+#     line_fig = create_line_graph(path= path)
+#     line_graph = line_fig.to_html(full_html=False)
+#     visualization_view(request= request)
 
-def load_line_graph(request):
-    path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
-    line_fig = create_line_graph(path= path)
-    line_graph = line_fig.to_html(full_html=False)
-    visualization_view(request= request)
-
-def load_network_graph(request):
-    path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
-    network_fig = create_network_graph(path= path)
-    network_graph = network_fig.to_html(full_html = False) 
-    visualization_view(request= request)
+# def load_network_graph(request):
+#     path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv")
+#     network_fig = create_network_graph(path= path)
+#     network_graph = network_fig.to_html(full_html = False) 
+#     visualization_view(request= request)

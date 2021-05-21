@@ -1,9 +1,12 @@
+from main.models import Data_set
 from django.shortcuts import render
 from .forms import Data_setForm
+from .models import user_id
 
 from web_project.settings import BASE_DIR
 
 from pathlib import Path
+
 
 import uuid    
 
@@ -26,10 +29,7 @@ def data_input_view(request, *args, **kwargs):
         #check if the form is valid
         if form.is_valid():
             #summit the form
-            data = form.save()
-            #delete the temp folder 
-            os.rmdir(path=Path.joinpath(BASE_DIR, 'temp'))
-
+            form.save()
     else:
         #set the form to a empty Data_setForm
         form = Data_setForm() 
