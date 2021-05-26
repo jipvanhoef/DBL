@@ -166,6 +166,35 @@ article.data_input {
 	margin-right: 10%;
 }
 
+form.input{
+	display: block;
+	left: 30%;
+}
+
+/* Home (Index) page */
+
+img.viskit_icon {
+	float: left;
+	width: 15%;
+	height: auto;
+}
+
+div.header_colomns{
+	padding-top: 0;
+	display: flex;	
+}
+
+div.name {
+	width: 45%;
+	margin-right: 5%;
+}
+
+div.icon {
+	width: 45%;
+	margin-left: 5%;
+}
+
+
 
 /* Contact page */
 

@@ -3,15 +3,19 @@
 {% load static %}
 <head>
     <meta charset="utf-8"> 
-	<link rel="icon" href="{% static 'IconTest.png' %}" type="image/png"/>
+	<link rel="icon" href="{% static 'main/favicon.png' %}"type="image/png">
     <link rel="stylesheet"  href="{%  static  'main/stylesheet.css'  %}">
 </head>
 <body>
-   
-    
-    
     <header>
-        <h1> VisKit </h1>
+        <div class="header_colomns">
+            <div class="name">
+                <h1> VisKit </h1>
+            </div>
+            <div class="icon">
+                <img class="viskit_icon" src= "{% static 'main/VisKit_logo.png' %}" alt="Viskit Icon">
+            </div>
+        </div>
         <nav>
             <ul class="navbar">
                 <li><a href="{% url 'home' %}"> Home </a></li>
