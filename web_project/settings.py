@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e)cnu=f5vac!yn1*_%8_1@g%2($en@v=hn6c+t!(_x^&dom665
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #THis is for the allowed hosts
-ALLOWED_HOSTS = ['dbl30.eu.pythonanywhere.com', 'www.dbl30.eu.pythonanywhere.com', "127.0.0.1",  'viskit.herokuapp.com']
+ALLOWED_HOSTS = ["127.0.0.1",  'viskit.herokuapp.com', 'viskit-production.herokuapp.com']
 
 
 # Application definition

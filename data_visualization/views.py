@@ -95,6 +95,7 @@ def create_line_graph(path):
         )
     )
     return fig
+    
 def create_network_graph(path):
     
 
