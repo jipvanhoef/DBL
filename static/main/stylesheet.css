@@ -22,6 +22,7 @@ h1 {
 	padding: 1vw;
 	font-family: Georgia, serif;
 	font-size: 2vw;
+	color: white; /* black or white ??? */
 }
 
 h2 {
@@ -105,6 +106,50 @@ div.contact_us { /* NOT USED YET */
 	margin: 3vw 40% 3vw 10%; /* space between div and left and top edge of screen */
 }
 
+
+
+article.data_input {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	font-style: normal; /* normal or italic */
+	font-weight: normal; /* normal, bold, or numeric */
+	margin-top: 2%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+form.input{
+	display: block;
+	left: 30%;
+}
+
+
+/* Base */
+
+img.viskit_icon {
+	float: right;
+	width: 20%;
+	height: auto;
+}
+
+div.header_colomns{
+	padding-top: 0;
+	display: flex;	
+}
+
+div.name {
+	width: 45%;
+	margin-right: 5%;
+}
+
+div.icon {
+	width: 45%;
+	margin-left: 5%;
+}
+
+
+/* Home (Index) page */
+
 article.introduction {
 	font-family: Georgia, serif; /* style of the font, lettertype */
 	font-size: 1.5vw; /* size of the text (font) */
@@ -140,7 +185,7 @@ img.development_team_image {
 }
 
 article.development_team:hover .development_team_image {
-	opacity: 0.3;
+	opacity: 1;
 }
 
 article.development_team:hover .team_name {
@@ -156,42 +201,13 @@ div.text_image {
 	border-radius: 8px;
 }
 
-article.data_input {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.5vw; /* size of the text (font) */
-	font-style: normal; /* normal or italic */
-	font-weight: normal; /* normal, bold, or numeric */
-	margin-top: 2%;
-	margin-left: 10%;
-	margin-right: 10%;
-}
-
-form.input{
+div.names {
 	display: block;
-	left: 30%;
-}
-
-/* Home (Index) page */
-
-img.viskit_icon {
-	float: right;
-	width: 20%;
-	height: auto;
-}
-
-div.header_colomns{
-	padding-top: 0;
-	display: flex;	
-}
-
-div.name {
-	width: 45%;
-	margin-right: 5%;
-}
-
-div.icon {
-	width: 45%;
-	margin-left: 5%;
+	margin: 0 10%;
+	margin-bottom: 5%;
+	font-size: 0.7vw; /* size of the text (font) */
+	letter-spacing: 1px; /* space between letters*/
+	line-height: 1.2; /* height between lines*/
 }
 
 
