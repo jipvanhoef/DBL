@@ -8,6 +8,17 @@
       <title>Visualizations</title>
   </head>
   <body>
+    <article class="data_input">
+			Getting bored of just looking at the default data set visualisations? Well use the feature below to implement your own dataset!
+		</article>
+	</section>
+	<div class="choose_data">
+		Here you can choose a file and import it. The visualizations will alter depending on the input data. Keep in mind that the data set has to have the same structure as the enron dataset. So far the only supported file type is a csv file.
+		<form method="POST" enctype="multipart/form-data"8> {% csrf_token %}
+			{{form.as_p}}
+			<input type="submit" value="Save">
+		</form>
+   </div>
     <section>
       <h2> Visualizations </h2>
       <article class="visualizations">
