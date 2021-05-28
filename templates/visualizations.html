@@ -17,14 +17,14 @@
       </article>
     </section>
     <section>
-      <article class="visualization_1">
+      <article class="visualization_1"> <!-- the first visualization, left one -->
         {% if network_graph %}
         {{ network_graph|safe }}
         {% else %}
         <p>No graph was provided.</p>
         {% endif %}
       </article>
-      <article class="visualization_2"> <!-- the second visualization, right -->
+      <article class="visualization_2"> <!-- the second visualization, right one -->
         {% if line_graph %}
         {{ line_graph|safe }}
         {% else %}
