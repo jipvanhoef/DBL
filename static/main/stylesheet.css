@@ -42,6 +42,12 @@ h3 {
     font-weight: bold;
 }
 
+
+
+
+
+/* Base */
+
 ul.navbar {
 	list-style-type: none;
 	margin: 0;
@@ -64,72 +70,23 @@ li a {
 	text-align: center;
 }
 
-
 /* style for the navbar item that is active */
 li a.active {
 	background-color: grey;
 }
 
-/* style for the navbar item that is hovered by the mouse */
-/* li a:hover:not(.active) {} */
-
-img {
-	width: 50%;
-	height: 50%;
-}
-
-div.choose_data {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.2vw; /* size of the text (font) */
-	letter-spacing: 1px; /* space between letters*/
-	line-height: 1.2; /* height between lines*/
-	background-color: lightgrey;
-	width: 40%;
-	border: 5px solid #6D8890;
-	padding: 50px;
-	display: block;
-	margin-left: 10%;
-	margin-right: auto;
-	margin-top: 3vw;
-}
-
-div.contact_us { /* NOT USED YET */
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.5vw; /* size of the text (font) */
-	letter-spacing: 1px; /* space between letters*/
-	line-height: 1.6; /* height between lines*/
-	background-color: lightgray;
-	width: 50%; /* width of the div */
-	border: 10px solid #6D8890; /* thickness border, kind border, color border */
-	padding: 3%; /* space between text and border, top-right-bottom-left */
-	display: block;
-	margin: 3vw 40% 3vw 10%; /* space between div and left and top edge of screen */
-}
-
-
-
-article.data_input {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.5vw; /* size of the text (font) */
-	font-style: normal; /* normal or italic */
-	font-weight: normal; /* normal, bold, or numeric */
-	margin-top: 2%;
-	margin-left: 10%;
-	margin-right: 10%;
-}
-
-form.input{
-	display: block;
-	left: 30%;
-}
-
-
-/* Base */
-
 img.viskit_icon {
 	float: right;
-	width: 20%;
+	width: 10%;
 	height: auto;
+	margin: 0 2%;
+}
+
+img.company_name {
+	float:left;
+	width: 25%;
+	height: auto;
+	margin: 1.5% 2%;
 }
 
 div.header_colomns{
@@ -146,6 +103,7 @@ div.icon {
 	width: 45%;
 	margin-left: 5%;
 }
+
 
 
 /* Home (Index) page */
@@ -212,9 +170,24 @@ div.names {
 
 
 
-/* Contact page */
+/* Data Input page */
 
-article.contact {
+div.choose_data {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.2vw; /* size of the text (font) */
+	letter-spacing: 1px; /* space between letters*/
+	line-height: 1.2; /* height between lines*/
+	background-color: lightgrey;
+	width: 40%;
+	border: 5px solid #6D8890;
+	padding: 50px;
+	display: block;
+	margin-left: 10%;
+	margin-right: auto;
+	margin-top: 3vw;
+}
+
+article.data_input {
 	font-family: Georgia, serif; /* style of the font, lettertype */
 	font-size: 1.5vw; /* size of the text (font) */
 	font-style: normal; /* normal or italic */
@@ -224,36 +197,11 @@ article.contact {
 	margin-right: 10%;
 }
 
-div.contact {
-    margin: 0 auto;
-    width: 80vw;
+form.input{
+	display: block;
+	left: 30%;
 }
 
-div.contact_columns {
-	padding-top: 0;
-	display: flex;
-}
-
-div.column_left {
-	width: 60%;
-	margin-right: 3%;
-}
-
-div.column_right {
-	width: 35%;
-	margin-left: 2%;
-}
-
-div.row {
-	padding-bottom: 2%;
-}
-
-img.contact_picture {
-	border: 5px double black;
-	width: 60%;
-	height: auto;
-	margin: -2% 25%;
-}
 
 
 /* Visualizations page */
@@ -317,3 +265,50 @@ button {
 	background-color: #4CAF50;
 	color: white;
 }
+
+
+
+/* Contact page */
+
+article.contact {
+	font-family: Georgia, serif; /* style of the font, lettertype */
+	font-size: 1.5vw; /* size of the text (font) */
+	font-style: normal; /* normal or italic */
+	font-weight: normal; /* normal, bold, or numeric */
+	margin-top: 2%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+div.contact {
+    margin: 0 auto;
+    width: 80vw;
+}
+
+div.contact_columns {
+	padding-top: 0;
+	display: flex;
+}
+
+div.column_left {
+	width: 60%;
+	margin-right: 3%;
+}
+
+div.column_right {
+	width: 35%;
+	margin-left: 2%;
+}
+
+div.row {
+	padding-bottom: 2%;
+}
+
+img.contact_picture {
+	border: 5px double black;
+	width: 60%;
+	height: auto;
+	margin: -2% 25%;
+}
+
+
