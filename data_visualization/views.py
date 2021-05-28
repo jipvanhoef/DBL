@@ -38,7 +38,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors
 import seaborn as sns  # also improves the look of plots
 def create_network_graph(path):
-    app = dash.Dash(__name__, )
+    
 
     styles = {
         'pre': {
@@ -228,6 +228,7 @@ def create_network_graph(path):
         sliders=sliders
     )
 
+    app = dash.Dash(__name__, )
     app.layout = html.Div([
             html.Div([
             dcc.Graph(
@@ -281,6 +282,7 @@ def create_network_graph(path):
         y_axis = 'fromEmailCount'
         return create_time_series(dff, title, y_axis)
     return fig
+
 #This function renders our html page for the visualizations
 def visualization_view(request, *args, **kwargs):
     #search for the correct file in the database by the userid
@@ -290,7 +292,7 @@ def visualization_view(request, *args, **kwargs):
     except:
         #set the path to our default database
          path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv") 
-
+    
     #call the function to create the network graph and convert it into html
     network_graph = create_network_graph(path).to_html(full_html = False)
 
