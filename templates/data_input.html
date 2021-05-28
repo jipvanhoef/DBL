@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Data Input page -->
 {%extends 'base.html'%}
 {% load static %}
 {%block content%}
@@ -11,7 +12,7 @@
         Getting bored of just looking at the default data set visualisations, use the feature below to implement your own dataset!
     </article>
     </section>
-    <div class="choose_data">
+    <div class="choose_data"> <!-- text with an input option for uploading your own dataset-->
     Here you can choose a file and import it. The visualizations will alter depending on the input data. Keep in mind that the data set has to have the same structure as the enron dataset. So far the only supported file type is a csv file.
     <form class="input" method="POST" enctype="multipart/form-data"8> {% csrf_token %}
         {{form.as_p}}
