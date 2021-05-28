@@ -1,23 +1,24 @@
 <!DOCTYPE html>
+<!-- This is the base page of our application, all the other pages are added to this one Viskit_favicon-->
 <html lang="en">
 {% load static %}
 <head>
     <meta charset="utf-8"> 
-	<link rel="icon" href="{% static 'main/Viskit_favicon.png' %}"type="image/png">
-    <link rel="stylesheet"  href="{%  static  'main/stylesheet.css'  %}">
+	<link rel="icon" href="{% static 'main/Viskit_favicon.png' %}"type="image/png"> <!-- favicon on top of the site -->
+    <link rel="stylesheet"  href="{%  static  'main/stylesheet.css'  %}"> <!-- link to the css stylesheet -->
 </head>
 <body>
     <header>
         <div class="header_colomns">
             <div class="name">
-                <h1> VisKit </h1>
+                <img class="company_name" src= "{% static 'main/Viskit_name.png' %}" alt="Viskit Icon"> <!-- Company name top left of the site --> 
             </div>
-            <div class="icon">
-                <img class="viskit_icon" src= "{% static 'main/VisKit_logo.png' %}" alt="Viskit Icon">
+            <div class="icon"> <!-- Company logo top right of the site-->
+                <img class="viskit_icon" src= "{% static 'main/Viskit_favicon.png' %}" alt="Viskit Icon">
             </div>
         </div>
         <nav>
-            <ul class="navbar">
+            <ul class="navbar"> <!-- Navigation bar for the pages-->
                 <li><a href="{% url 'home' %}"> Home </a></li>
                 <li><a href="{% url 'data_input' %}"> Data Input</a></li>
                 <li><a href="{% url 'visualization' %}"> Visualizations </a></li>
@@ -25,7 +26,7 @@
             </ul>
         </nav>
     </header>
-    {% block content %}
+    {% block content %} <!-- adds the active page code here-->
     {% endblock %}
 </body>
 </html>
