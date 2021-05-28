@@ -29,4 +29,5 @@ urlpatterns = [
     path('visualization/', visualization_view, name = 'visualization'),
     path('contact/', contact_view, name = "contact"),
     path('admin/', admin.site.urls),
+    path('django_plotly_dash/', include('django_plotly_dash.urls'))
 ]

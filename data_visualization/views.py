@@ -1,6 +1,7 @@
 from django.http import request
 from django.shortcuts import render
 from django.urls.conf import path
+from django_plotly_dash.dash_wrapper import DjangoDash
 from web_project.settings import BASE_DIR
 from pathlib import Path
 
@@ -37,8 +38,9 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.colors
 import seaborn as sns  # also improves the look of plots
+from django_plotly_dash import DjangoDash 
 def create_network_graph(path):
-    
+    app = DjangoDash("network_graph")
 
     styles = {
         'pre': {
@@ -228,7 +230,7 @@ def create_network_graph(path):
         sliders=sliders
     )
 
-    app = dash.Dash(__name__, )
+    
     app.layout = html.Div([
             html.Div([
             dcc.Graph(
@@ -294,11 +296,11 @@ def visualization_view(request, *args, **kwargs):
          path = Path.joinpath(BASE_DIR, "data_set/enron-v1.csv") 
     
     #call the function to create the network graph and convert it into html
-    network_graph = create_network_graph(path).to_html(full_html = False)
+    create_network_graph(path)
 
     #fill a libary with the extra elements that needs to be loaded into the html
-    context = {"network_graph": network_graph}
+    
     #render the html file and load in the context
-    return render(request, "visualizations.html", context)
+    return render(request, "visualizations.html", {})
     
 

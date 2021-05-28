@@ -271,13 +271,13 @@ article.visualizations {
 article.visualization_1 {
 	border: 5px solid #6D8890;
 	float: left;
-	width: 42%;
+	width: 90%;
 	height: auto;
 	padding: 1%;
 	margin: 2%;
 }
 
-article.visualization_2 {
+/* article.visualization_2 {
 	border: 5px solid #6D8890;
 	float: right;
 	width: 42%;
@@ -289,7 +289,7 @@ article.visualization_2 {
 img.image_visualization_1 {
 	width: 100%;
 	height: auto;
-}
+} */
 
 button {
 	display: block;

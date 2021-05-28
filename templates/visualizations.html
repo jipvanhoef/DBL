@@ -17,18 +17,8 @@
     </section>
     <section>
       <article class="visualization_1">
-        {% if network_graph %}
-        {{ network_graph|safe }}
-        {% else %}
-        <p>No graph was provided.</p>
-        {% endif %}
-      </article>
-      <article class="visualization_2">
-        {% if line_graph %}
-        {{ line_graph|safe }}
-        {% else %}
-        <p>No graph was provided.</p>
-        {% endif %}
+        {%load plotly_dash%}
+        {%plotly_app name="network_graph"%}
       </article>
     </section>         
   </body>
