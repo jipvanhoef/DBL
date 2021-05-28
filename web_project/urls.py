@@ -19,6 +19,7 @@ from django.urls import include, path
 
 from main.views import home_view, data_input_view, contact_view
 from data_visualization.views import visualization_view
+from data_visualization import graph
 
 #This are the url patterns the first argument in path() is the suffix of our normal url like this "ourwebpage/suffix.com"
 #The second argument is the imported view function to render our html  
