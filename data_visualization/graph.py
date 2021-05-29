@@ -144,9 +144,9 @@ for n, p in pos.items():
 
 # make the graph framework with layout settings
 fig = go.Figure(layout=go.Layout(
-    title="network graph of all email data of enron per year <br>year visible: " +
+    title="Network graph of all email data in the year " +
     years[0].astype(str),
-    titlefont=dict(size=16),
+    titlefont=dict(size=18),
     showlegend=True,
     hovermode='closest',
     margin=dict(b=20, l=5, r=5, t=40),
@@ -156,7 +156,8 @@ fig = go.Figure(layout=go.Layout(
     xref="paper", yref="paper")],
     xaxis=dict(showgrid=False, zeroline=False,
         showticklabels=False),
-yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)))
+    yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)))
+
 # add all the traces for every year
 for i in range(yearscount):
     fig.add_trace(

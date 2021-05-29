@@ -217,12 +217,12 @@ article.visualizations {
 }
 
 article.visualization_1 {
+	display: block;
 	border: 5px solid #6D8890;
-	float: left;
 	width: 90%;
-	height: auto;
+	height: 200%;
 	padding: 1%;
-	margin: 2%;
+	margin: 3%;
 }
 
 /* article.visualization_2 {
@@ -232,11 +232,6 @@ article.visualization_1 {
 	height: auto;
 	padding: 1%;
 	margin: 2%;
-}
-
-img.image_visualization_1 {
-	width: 100%;
-	height: auto;
 } */
 
 button {
