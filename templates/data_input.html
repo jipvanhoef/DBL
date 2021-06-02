@@ -7,6 +7,9 @@
 	<title>Data Input</title>
 </head>
 <body>
+    {% if badinput_flag %}
+        <script>alert("This file type is not supported please summit a .csv file")</script>
+    {% endif %}
     <article class="data_input">
         <h2> Data Input </h2>
         Getting bored of just looking at the default data set visualisations, use the feature below to implement your own dataset!

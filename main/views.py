@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from main.models import Data_set
 from django.shortcuts import render
 from .forms import Data_setForm
@@ -11,7 +12,7 @@ from pathlib import Path
 import uuid    
 
 import os
-
+from main.forms import Data_setForm
 #In this file are the functions to render our pages and load the content
 
 
@@ -30,12 +31,16 @@ def data_input_view(request, *args, **kwargs):
         if form.is_valid():
             #summit the form
             form.save()
+            badinput_error = False
+        else:
+            badinput_error = True
     else:
         #set the form to a empty Data_setForm
-        form = Data_setForm() 
+        form = Data_setForm()
+        badinput_error = False 
 
     #set the html context to the form      
-    context = {'form': form}
+    context = {'form': form, 'badinput_flag': badinput_error}
 
     #render the html page with the context
     return render(request, "data_input.html", context)

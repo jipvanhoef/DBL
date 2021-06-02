@@ -3,7 +3,6 @@ from django.contrib import messages
 from django import forms
 
 from .models import Data_set
-
 class Data_setForm(forms.ModelForm):
     class Meta:
         model = Data_set
@@ -42,5 +41,5 @@ class Data_setForm(forms.ModelForm):
             #check if the filetype is in the list of supported files
             if not filetype in supported_file_types:
                 #raise a forms validation error with our error message
-                raise forms.ValidationError(error_string)
+                raise forms.ValidationError("Wrong file type")
 
