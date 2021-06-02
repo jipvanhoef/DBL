@@ -230,7 +230,7 @@ for i in range(yearscount):
     year = dict(
         method="update",
         args=[{"visible": [False] * yearscount + [True]*jobtitlescount},
-                {"title": "network graph of all email data of enron per year <br>year visible: " + years[i].astype(str)}],
+                {"title": "Network graph of all email data in the year " + years[i].astype(str)}],
         label=yearsstring[i],  # layout attribute
     )
     year["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"
