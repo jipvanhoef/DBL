@@ -1,7 +1,7 @@
 header {
 	background-color:  #6D8890;
 	width: 100%;
-	padding: 0;
+	padding: 0; /* space between object and border */
 	margin: 0;
 }
 
@@ -19,7 +19,7 @@ div {
 
 h1 {
 	margin: 0;
-	padding: 1vw;
+	padding: 1vw; /* space between object and border */
 	font-family: Georgia, serif;
 	font-size: 2vw;
 	color: white; 
@@ -51,8 +51,8 @@ h3 {
 ul.navbar {
 	list-style-type: none;
 	margin: 0;
-	padding: 5%;
-	padding-top: 0;
+	padding: 5%; /* space between object and border */
+	padding-top: 0; /* top-space between object and border, overwrites the previous padding */
 	background-color: #A89584;
 }
 
@@ -64,7 +64,7 @@ li {
 li a {
 	display: block;
 	color: rgb(255, 255, 255);
-	padding: 1.5vw;
+	padding: 1.5vw; /* space between object and border */
 	font-size: 1.7vw;
 	text-decoration: none; /* removes the underline */
 	text-align: center;
@@ -90,7 +90,7 @@ img.company_name {
 }
 
 div.header_colomns{
-	padding-top: 0;
+	padding-top: 0; /* top-space between object and border */
 	display: flex;	
 }
 
@@ -155,7 +155,7 @@ div.text_image {
 	font-size: 16px;
 	color: white;
 	background-color: grey;
-	padding: 16px;
+	padding: 16px; /* space between object and border */
 	border-radius: 8px;
 }
 
@@ -180,7 +180,7 @@ div.choose_data {
 	background-color: lightgrey;
 	width: 40%;
 	border: 5px solid #6D8890;
-	padding: 50px;
+	padding: 50px; /* space between object and border */
 	display: block;
 	margin-left: 10%;
 	margin-right: auto;
@@ -221,18 +221,9 @@ article.visualization_1 {
 	border: 5px solid #6D8890;
 	width: 90%;
 	height: 200%;
-	padding: 1%;
+	padding: 1%; /* space between object and border */
 	margin: 3%;
 }
-
-/* article.visualization_2 {
-	border: 5px solid #6D8890;
-	float: right;
-	width: 42%;
-	height: auto;
-	padding: 1%;
-	margin: 2%;
-} */
 
 button {
 	display: block;
@@ -243,7 +234,7 @@ button {
 	color: black;
 	margin: 2% 30%;
 	color: white;
-	padding: 2% 4%;
+	padding: 2% 4%; /* space between object and border */
 	font-size: 100%;
 	text-align: center;
 	text-decoration: none;
@@ -281,7 +272,7 @@ div.contact {
 }
 
 div.contact_columns {
-	padding-top: 0;
+	padding-top: 0; /* top-space between object and border */
 	display: flex;
 }
 
@@ -296,7 +287,7 @@ div.column_right {
 }
 
 div.row {
-	padding-bottom: 2%;
+	padding-bottom: 2%; /* bottom-space between object and border */
 }
 
 img.contact_picture {
