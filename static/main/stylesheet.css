@@ -2,44 +2,44 @@ header {
 	background-color:  #6D8890;
 	width: 100%;
 	padding: 0; /* space between object and border */
-	margin: 0;
+	margin: 0; /* space between border and other objects/edge of the screen */
 }
 
 body {
-	font-family: Georgia, serif;
-	font-size: 1.5vw;
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 1.5vw; /* vw: relative to size of the viewport */
 	background-color: white;
-	margin: 0;
-	line-height: 1.5;
+	margin: 0; /* space between border and other objects/edge of the screen */
+	line-height: 1.5; /* space between the lines of text */
 }
 
 div {
-	display: block;
+	display: block; /* type of displaying the object */
 }
 
 h1 {
-	margin: 0;
+	margin: 0; /* space between border and other objects/edge of the screen */
 	padding: 1vw; /* space between object and border */
-	font-family: Georgia, serif;
-	font-size: 2vw;
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 2vw; /* vw: relative to size of the viewport */
 	color: white; 
 }
 
 h2 {
-	font-family: Georgia, serif;
-	font-size: 2vw;
-	margin-top: 2%;
-	text-align: center;
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 2vw; /* vw: relative to size of the viewport */
+	margin-top: 2%; /* top-space between border and other objects/edge of the screen */
+	text-align: center; /* position of the text */
 }
 
 h3 {
-	display: block;
-    font-size:1.5vw;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+	display: block; /* type of displaying the object */
+    font-size:1.5vw; /* vw: relative to size of the viewport */
+    margin-block-start: 1em; /* em: relative to the text size */
+    margin-block-end: 1em; /* em: relative to the text size */
+    margin-inline-start: 0px; /* px: an absolute length */
+    margin-inline-end: 0px; /* px: an absolute length */
+    font-weight: bold; /* (normal, bold, or numeric) style of the text */
 }
 
 
@@ -49,25 +49,24 @@ h3 {
 /* Base */
 
 ul.navbar {
-	list-style-type: none;
-	margin: 0;
+	margin: 0; /* space between border and other objects/edge of the screen */
 	padding: 5%; /* space between object and border */
 	padding-top: 0; /* top-space between object and border, overwrites the previous padding */
 	background-color: #A89584;
 }
 
 li {
-	float: left;
+	float: left; /* position the object on the left */
 	width: 25%;
 }
 
 li a {
-	display: block;
+	display: block; /* type of displaying the object */
 	color: rgb(255, 255, 255);
 	padding: 1.5vw; /* space between object and border */
-	font-size: 1.7vw;
+	font-size: 1.7vw; /* vw: relative to size of the viewport */
 	text-decoration: none; /* removes the underline */
-	text-align: center;
+	text-align: center; /* position of the text */
 }
 
 /* style for the navbar item that is active */
@@ -76,32 +75,32 @@ li a.active {
 }
 
 img.viskit_icon {
-	float: right;
+	float: right; /* position the object on the right*/
 	width: 10%;
 	height: auto;
-	margin: 0 2%;
+	margin: 0 2%; /* (top & bottom - left & right) space between border and other objects/edge of the screen */
 }
 
 img.company_name {
-	float:left;
+	float: left; /* position the object on the left*/
 	width: 25%;
 	height: auto;
-	margin: 1.5% 2%;
+	margin: 1.5% 2%; /* (top & bottom - left & right) space between border and other objects/edge of the screen */
 }
 
 div.header_colomns{
 	padding-top: 0; /* top-space between object and border */
-	display: flex;	
+	display: flex; /* type of displaying the object */
 }
 
 div.name {
 	width: 45%;
-	margin-right: 5%;
+	margin-right: 5%; /* right space between border and other objects/edge of the screen */
 }
 
 div.icon {
 	width: 45%;
-	margin-left: 5%;
+	margin-left: 5%; /* left space between border and other objects/edge of the screen */
 }
 
 
@@ -109,37 +108,37 @@ div.icon {
 /* Home (Index) page */
 
 article.introduction {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.5vw; /* size of the text (font) */
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 1.5vw; /* vw: relative to size of the viewport */
 	font-style: normal; /* normal or italic */
-	font-weight: normal; /* normal, bold, or numeric */
-	margin-top: 2%;
-	margin-left: 10%;
-	margin-right: 10%;
+	font-weight: normal; /* (normal, bold, or numeric) style of the text */
+	margin-top: 2%; /* top space between border and other objects/edge of the screen */
+	margin-left: 10%; /* left space between border and other objects/edge of the screen */
+	margin-right: 10%; /* right space between border and other objects/edge of the screen */
 }
 
 img.development_team_image {
-	border: 2px solid black; /* thickness border, kind border, color border */
-	border-radius: 8px; /* for rounding the edges */
+	border: 2px solid black; /* (thickness - type of line - color) of the border */
+	border-radius: 8px; /* amount of bending in the edges of the border */
 	padding: 0; /* space between image and border */
 	width: 80%;
 	height: auto; /* automatically adapt height to width */
-	display: block;
-	margin-left: auto;
+	display: block; /* type of displaying the object */
+	margin-left: auto; /* left space between border and other objects/edge of the screen */
 	margin-right: auto; /* these 3 lines to center an image */
 	transition: .5s ease; /* time to transition opacity */
-	backface-visibility: hidden;
+	backface-visibility: hidden; /* (visible/hidden) back face of the object when facing the user */
 }
 
 .team_name {
 	color: rgb(255, 255, 255);
-	transition: 0.5s ease;
+	transition: 0.5s ease; /* time to transition opacity */
 	opacity: 0;
-	position: absolute;
-	top: 45vw;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%)
+	position: absolute; /* type of positioning used for this element */
+	top: 45vw; /* vw: relative to size of the viewport */
+	left: 50%; /* horizontal position, move the given space to the right (from the left) */
+	transform: translate(-50%, -50%); /* move an element from current position */
+	-ms-transform: translate(-50%, -50%) /* move an element from current position (for older internet versions) */
 }
 
 article.development_team:hover .development_team_image {
@@ -151,19 +150,19 @@ article.development_team:hover .team_name {
 }
 
 div.text_image {
-	font-family: Georgia, serif;
-	font-size: 16px;
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 16px; /* px: an absolute length */
 	color: white;
 	background-color: grey;
 	padding: 16px; /* space between object and border */
-	border-radius: 8px;
+	border-radius: 8px; /* amount of bending in the edges of the border */
 }
 
 div.names {
-	display: block;
-	margin: 0 10%;
-	margin-bottom: 5%;
-	font-size: 0.7vw; /* size of the text (font) */
+	display: block; /* type of displaying the object */
+	margin: 0 10%; /* space between border and other objects/edge of the screen */
+	margin-bottom: 5%; /* bottom space between border and other objects/edge of the screen, overwrites the previous margin */
+	font-size: 0.7vw; /* vw: relative to size of the viewport */
 	letter-spacing: 1px; /* space between letters*/
 	line-height: 1.2; /* height between lines*/
 }
@@ -173,33 +172,33 @@ div.names {
 /* Data Input page */
 
 div.choose_data {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.2vw; /* size of the text (font) */
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 1.2vw; /* vw: relative to size of the viewport */
 	letter-spacing: 1px; /* space between letters*/
 	line-height: 1.2; /* height between lines*/
 	background-color: lightgrey;
 	width: 40%;
-	border: 5px solid #6D8890;
+	border: 5px solid #6D8890; /* (thickness - type of line - color) of the border */
 	padding: 50px; /* space between object and border */
-	display: block;
-	margin-left: 10%;
-	margin-right: auto;
-	margin-top: 3vw;
+	display: block; /* type of displaying the object */
+	margin-left: 10%; /* left space between border and other objects/edge of the screen */
+	margin-right: auto; /* right space between border and other objects/edge of the screen */
+	margin-top: 3vw; /* top space between border and other objects/edge of the screen */
 }
 
 article.data_input {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.5vw; /* size of the text (font) */
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 1.5vw; /* vw: relative to size of the viewport */
 	font-style: normal; /* normal or italic */
-	font-weight: normal; /* normal, bold, or numeric */
-	margin-top: 2%;
-	margin-left: 10%;
-	margin-right: 10%;
+	font-weight: normal; /* (normal, bold, or numeric) style of the text */
+	margin-top: 2%; /* top space between border and other objects/edge of the screen */
+	margin-left: 10%; /* left space between border and other objects/edge of the screen */
+	margin-right: 10%; /* right space between border and other objects/edge of the screen */
 }
 
 form.input{
-	display: block;
-	left: 30%;
+	display: block; /* type of displaying the object */
+	left: 30%; /* horizontal position, move the given space to the right (from the left) */
 }
 
 
@@ -207,39 +206,38 @@ form.input{
 /* Visualizations page */
 
 article.visualizations {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.5vw; /* size of the text (font) */
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 1.5vw; /* vw: relative to size of the viewport */
 	font-style: normal; /* normal or italic */
-	font-weight: normal; /* normal, bold, or numeric */
-	margin-top: 2%;
-	margin-left: 10%;
-	margin-right: 10%;
+	font-weight: normal; /* (normal, bold, or numeric) style of the text */
+	margin-top: 2%; /* top space between border and other objects/edge of the screen */
+	margin-left: 10%; /* left space between border and other objects/edge of the screen */
+	margin-right: 10%; /* right space between border and other objects/edge of the screen */
 }
 
 article.visualization_1 {
-	display: block;
-	border: 5px solid #6D8890;
+	display: block; /* type of displaying the object */
+	border: 5px solid #6D8890; /* (thickness - type of line - color) of the border */
 	width: 90%;
 	height: 200%;
 	padding: 1%; /* space between object and border */
-	margin: 3%;
+	margin: 3%; /* space between border and other objects/edge of the screen */
 }
 
-button {
-	display: block;
-	border: 3px solid black;
+button { /* Not used yet */
+	display: block; /* type of displaying the object */
+	border: 3px solid black; /* (thickness - type of line - color) of the border */
 	border-color: black;
 	background-color: grey;
-	border-radius: 30px;
+	border-radius: 30px; /* amount of bending in the edges of the border */
 	color: black;
-	margin: 2% 30%;
+	margin: 2% 30%; /* (top & bottom - left & right) space between border and other objects/edge of the screen */
 	color: white;
 	padding: 2% 4%; /* space between object and border */
-	font-size: 100%;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	transition-duration: 0.3s;
+	font-size: 100%; /* %: percentage of the screen/viewport */
+	text-align: center; /* position of the text */
+	cursor: pointer; /* change the curser into a pointer when on this object */
+	transition-duration: 0.3s; /* time of the transition */
 }
 
 .button_1:hover {
@@ -257,33 +255,33 @@ button {
 /* Contact page */
 
 article.contact {
-	font-family: Georgia, serif; /* style of the font, lettertype */
-	font-size: 1.5vw; /* size of the text (font) */
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 1.5vw; /* vw: relative to size of the viewport */
 	font-style: normal; /* normal or italic */
-	font-weight: normal; /* normal, bold, or numeric */
-	margin-top: 2%;
-	margin-left: 10%;
-	margin-right: 10%;
+	font-weight: normal; /* (normal, bold, or numeric) style of the text */
+	margin-top: 2%; /* top space between border and other objects/edge of the screen */
+	margin-left: 10%; /* left space between border and other objects/edge of the screen */
+	margin-right: 10%; /* right space between border and other objects/edge of the screen */
 }
 
 div.contact {
-    margin: 0 auto;
-    width: 80vw;
+    margin: 0 auto; /* space between border and other objects/edge of the screen */
+    width: 80vw; /* vw: relative to size of the viewport */
 }
 
 div.contact_columns {
 	padding-top: 0; /* top-space between object and border */
-	display: flex;
+	display: flex; /* type of displaying the object */
 }
 
 div.column_left {
 	width: 60%;
-	margin-right: 3%;
+	margin-right: 3%; /* right space between border and other objects/edge of the screen */
 }
 
 div.column_right {
 	width: 35%;
-	margin-left: 2%;
+	margin-left: 2%; /* left space between border and other objects/edge of the screen */
 }
 
 div.row {
@@ -291,10 +289,10 @@ div.row {
 }
 
 img.contact_picture {
-	border: 5px double black;
+	border: 5px double black; /* (thickness - type of line - color) of the border */
 	width: 60%;
 	height: auto;
-	margin: -2% 25%;
+	margin: -2% 25%; /* (top & bottom - left & right) space between border and other objects/edge of the screen */
 }
 
 
