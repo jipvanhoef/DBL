@@ -244,13 +244,14 @@ def build_graph():
     fig.update_layout(
     sliders=sliders
 )
+    first_person = df_enron['fromEmail'].iloc[0]
 
     app.layout = html.Div([
     html.Div([
         dcc.Graph(
-            id='network-graph',
-            figure=fig,
-            # clickData={'points': [{'text': df_enron['fromEmail'].iloc[0]}]}
+        id='network-graph',
+        figure=fig,
+        clickData={'points': [{'text': first_person}]}
         )
     ], style={'width': '49%', 'display': 'inline-block', 'padding': '0 20'}),
     html.Div([
