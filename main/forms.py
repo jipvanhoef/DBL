@@ -23,21 +23,6 @@ class Data_setForm(forms.ModelForm):
         if not file == None:
             #get the filetype by splitting of the extension from the name
             filetype = os.path.splitext(file.name)[1]
-            #Create the error message
-            error_string = "The file type " + filetype + " is not suported please summit a "
-            
-            #add all the supported file types to the error message
-            for i in range(len(supported_file_types)):
-                #if it is the last entry do not ad a comma
-                if i == len(supported_file_types) - 1:
-                    #add the file type to the error string
-                    error_string = error_string + supported_file_types[i]
-                else:
-                    #add the file type followed by a comma to the error string
-                    error_string = error_string + supported_file_types[i] + ", "
-
-            #complete the error string
-            error_string = error_string + " file."
             #check if the filetype is in the list of supported files
             if not filetype in supported_file_types:
                 #raise a forms validation error with our error message
