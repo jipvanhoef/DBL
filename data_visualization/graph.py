@@ -31,6 +31,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors
 import seaborn as sns  # also improves the look of plots
 from django_plotly_dash import DjangoDash
+
 def build_graph():
     # search for the correct file in the database by the userid
     try:
@@ -300,4 +301,4 @@ def build_graph():
         email, 'amount of sent mails over time')
         y_axis = 'fromEmailCount'
         return create_time_series(dff, title, y_axis)
-
+build_graph()

@@ -9,7 +9,7 @@ from web_project.settings import BASE_DIR
 from pathlib import Path
 
 
-import uuid
+from data_visualization import graph
 import os
 
 import datetime
@@ -34,6 +34,7 @@ def data_input_view(request, *args, **kwargs):
         if form.is_valid():
             #summit the form
             form.save()
+            graph.build_graph()
             badinput_error = False
         else:
             badinput_error = True
