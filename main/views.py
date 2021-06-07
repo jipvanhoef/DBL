@@ -1,6 +1,8 @@
+import uuid
 from django.core.exceptions import ValidationError
+from django.http import response
 from main.models import Data_set
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .forms import Data_setForm
 from .models import user_id
 
@@ -14,12 +16,34 @@ import os
 
 import datetime
 from main.forms import Data_setForm
+from main.models import User
+
 #In this file are the functions to render our pages and load the content
 
 
 #This function renders our html page for the home page
+tour = True
+tour_in_progress = False
 def home_view(request, *args, **kwargs):
-    return render(request, "index.html",{})
+    try:
+        User.objects.get(user_id = user_id)
+        if not tour_in_progress:
+            tour = False
+    except:
+        User.objects.create(user_id = user_id)
+        tour = True
+        
+
+    if tour:
+        template = "index_tour.html"
+    else:
+        template = 'index.html'
+    return render(request, template,{})
+
+def start_tour(request):
+    tour_in_progress = True
+    response = redirect('/data_input/')
+    return response
 
 #This function renders our html page for the data input
 def data_input_view(request, *args, **kwargs):

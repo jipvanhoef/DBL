@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Home page -->
+<html lang="en">
+{%extends 'base_tour.html'%}
+{% load static %}
+{%block content%}
+<head>
+	<title>Home</title>
+</head>
+<body>
+	<section>
+		<h2> Introduction </h2>
+		<article class="introduction"> <!-- text with a link to the contact page -->
+			Welcome to VisKit! Here you can easily turn your obtained data into clear visualizations.
+			Want to take the tour or explore the site yourself.
+            <button type="button">Cancel</button>
+            <a type="button" href = "{% url 'tour' %}">Take the tour</a>
+		</article>
+		<br><br><br>
+		<article class="development_team"> <!-- picture of the development team -->
+			<img class="development_team_image" src= "{% static 'main/development_team.jpg' %}" alt="Development Team">
+			<div class="team_name"> <!-- by hovering over the picture you see this text "Team VisKit"-->
+				<div class="text_image">Team VisKit</div>
+			  </div>
+		<div class="names"> <!-- names of the people in the picture-->
+			<b>Back Row:</b> Thymo Fieten, Priyanka Atwani, Daniël Dankers, Koert Schoenmakers <br>
+			<b>Front Row:</b> Akshath Gurtu, Jip van Hoef
+	    </div> 
+		</article>
+	</section>
+</body>
+{%endblock%}

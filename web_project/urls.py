@@ -13,11 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from os import name
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls import url
 
 
-from main.views import home_view, data_input_view, contact_view
+from main.views import home_view, data_input_view, contact_view, start_tour
 from data_visualization.views import visualization_view
 from data_visualization import graph
 
@@ -30,5 +32,6 @@ urlpatterns = [
     path('visualization/', visualization_view, name = 'visualization'),
     path('contact/', contact_view, name = "contact"),
     path('admin/', admin.site.urls),
-    path('django_plotly_dash/', include('django_plotly_dash.urls'))
+    path('tour/', start_tour, name = 'tour'),
+    path('django_plotly_dash/', include('django_plotly_dash.urls')),
 ]
