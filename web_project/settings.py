@@ -127,8 +127,6 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'static_root')
 
-MEDIA_ROOT = Path.joinpath(BASE_DIR,'data_set')
-
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
