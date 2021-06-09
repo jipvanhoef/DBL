@@ -269,15 +269,17 @@ def build_graph():
         fig.update_xaxes(showgrid=False)
 
         fig.update_yaxes(type='linear')
+        fig.update_layout(title = title)
+
 
         fig.add_annotation(x=0, y=0.85, xanchor='left', yanchor='bottom',
                        xref='paper', yref='paper', showarrow=False, align='left',
-                       bgcolor='rgba(255, 255, 255, 0.5)', text=title)
+                       bgcolor='rgba(255, 255, 255, 0.5)', text='')
 
         fig.update_layout(height=225, margin={
         'l': 20, 'b': 30, 'r': 10, 't': 10})
 
-        return fig
+        return figs
 
 
     @app.callback(
