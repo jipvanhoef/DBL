@@ -1,6 +1,3 @@
-import uuid
-from django.core.exceptions import ValidationError
-from django.http import response
 from main.models import Data_set
 from django.shortcuts import redirect, render
 from .forms import Data_setForm
