@@ -286,7 +286,7 @@ def build_graph():
     def update_sentiment(clickData):
         email = clickData['points'][0]['text']
         dff = df_time[df_time['fromEmail'] == email]
-        title = '<b>{}<br><b>{}'.format(email, 'average sentiment over time')
+        title = '<b>{}<br><b>{}'.format(email, 'Average Sentiment over time')
         y_axis = 'sentiment'
         return create_time_series(dff, title, y_axis)
 
@@ -297,8 +297,7 @@ def build_graph():
     def update_mails(clickData):
         email = clickData['points'][0]['text']
         dff = df_time[df_time['fromEmail'] == email]
-        title = '<b>{}<br><b>{}'.format(
-        email, 'amount of sent mails over time')
+        title = '<b>{}<br><b>{}'.format(email, 'Amount of Mails sent over time')
         y_axis = 'fromEmailCount'
         return create_time_series(dff, title, y_axis)
 build_graph()
