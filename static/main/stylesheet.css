@@ -53,6 +53,7 @@ ul.navbar {
 	padding: 5%; /* space between object and border */
 	padding-top: 0; /* top-space between object and border, overwrites the previous padding */
 	background-color: #A89584;
+	list-style-type: none; /* type of list-item marker */
 }
 
 li {
