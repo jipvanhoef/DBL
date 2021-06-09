@@ -8,7 +8,8 @@ user_id = str(uuid.uuid1())
 # Create your models here.
 def file_name(instance, filename):
     #create the path
-    path  = Path.joinpath(BASE_DIR, "temp")
+    path  = Path.joinpath(BASE_DIR, "data_set")
+    path = Path.joinpath(BASE_DIR, 'temp')
     path = Path.joinpath(path,user_id)
     path = Path.joinpath(path,filename)
     #return the temporary path 

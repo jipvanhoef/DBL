@@ -85,14 +85,11 @@ def clean_unused_data():
             entry.delete()
 
 def delete_folder(path):
-    try:
-        path = Path(path)
-        path.unlink()
-        directory = os.path.dirname(path)
-        directory = Path(directory)
-        directory.rmdir()
-    except:
-        print(os.error)
+    path = Path(path)
+    path.unlink()
+    directory = os.path.dirname(path)
+    directory = Path(directory)
+    directory.rmdir()
 
 
         
