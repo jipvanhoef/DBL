@@ -74,22 +74,25 @@ def data_input_view(request, *args, **kwargs):
     return render(request, "data_input.html", context)
 
 def clean_unused_data():
-    experiation_time = datetime.timedelta(hours= 2)
+    experiation_time = datetime.timedelta(days=0, hours= 2, minutes=0)
     current_time = datetime.datetime.now(datetime.timezone.utc)
     data_sets = Data_set.objects.all()
     for entry in data_sets:
         start_time = entry.time
         diff = (start_time - current_time)
-        if( diff > experiation_time):
+        if( diff.days < 0 or diff > experiation_time):
             delete_folder(path= entry.file.path)
             entry.delete()
 
 def delete_folder(path):
     path = Path(path)
-    path.unlink()
-    directory = os.path.dirname(path)
-    directory = Path(directory)
-    directory.rmdir()
+    try:
+        path.unlink()
+        directory = os.path.dirname(path)
+        directory = Path(directory)
+        directory.rmdir()
+    except:
+        print(path)
 
 
         
