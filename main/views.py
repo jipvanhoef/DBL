@@ -42,8 +42,7 @@ def home_view(request, *args, **kwargs):
 
 def start_tour(request):
     tour_in_progress = True
-    response = redirect('/data_input/')
-    return response
+    data_input_view(request=request)
 
 #This function renders our html page for the data input
 def data_input_view(request, *args, **kwargs):
