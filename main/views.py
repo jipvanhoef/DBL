@@ -1,6 +1,6 @@
 import uuid
 from django.core.exceptions import ValidationError
-from django.http import response
+from django.http import request, response
 from main.models import Data_set
 from django.shortcuts import redirect, render
 from .forms import Data_setForm
@@ -22,16 +22,16 @@ from main.models import User
 
 
 #This function renders our html page for the home page
-tour = True
+tour = False
 tour_in_progress = False
 def home_view(request, *args, **kwargs):
-    try:
-        User.objects.get(user_id = user_id)
-        if not tour_in_progress:
-            tour = False
-    except:
-        User.objects.create(user_id = user_id)
-        tour = True
+    # try:
+    #     User.objects.get(user_id = user_id)
+    #     if not tour_in_progress:
+    #         tour = False
+    # except:
+    #     User.objects.create(user_id = user_id)
+    #     tour = True
         
 
     if tour:
@@ -40,9 +40,8 @@ def home_view(request, *args, **kwargs):
         template = 'index.html'
     return render(request, template,{})
 
-def start_tour(request):
+def start_tour():
     tour_in_progress = True
-    data_input_view(request=request)
 
 #This function renders our html page for the data input
 def data_input_view(request, *args, **kwargs):
