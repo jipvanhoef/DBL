@@ -1,6 +1,4 @@
 from django.db import models
-import os
-from django.db import models
 from web_project.settings import BASE_DIR
 from pathlib import Path
 import uuid  
@@ -26,6 +24,5 @@ class Data_set(models.Model):
     #save the time when the user summited the data so that it can be determined when the data should be errased
     time = models.DateTimeField(default= datetime.datetime.now().isoformat())
 
-class User(models.Model):
-    user_id = models.CharField(default= user_id, max_length= 255)
+
 
