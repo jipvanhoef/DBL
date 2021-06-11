@@ -218,7 +218,6 @@ article.visualizations {
 
 article.visualization_1 {
 	display: block; /* type of displaying the object */
-	border: 5px solid #6D8890; /* (thickness - type of line - color) of the border */
 	width: 90%;
 	height: 200%;
 	padding: 1%; /* space between object and border */

@@ -2,7 +2,7 @@ import os
 from django.contrib import messages
 from django import forms
 
-from .models import Data_set
+from data_visualization.models import Data_set
 class Data_setForm(forms.ModelForm):
     class Meta:
         model = Data_set

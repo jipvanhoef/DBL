@@ -1,6 +1,6 @@
 import uuid
 from django.core.exceptions import ValidationError
-from django.http import response
+from django.http import request, response
 from main.models import Data_set
 from django.shortcuts import redirect, render
 from .forms import Data_setForm
@@ -22,16 +22,16 @@ from main.models import User
 
 
 #This function renders our html page for the home page
-tour = True
+tour = False
 tour_in_progress = False
 def home_view(request, *args, **kwargs):
-    try:
-        User.objects.get(user_id = user_id)
-        if not tour_in_progress:
-            tour = False
-    except:
-        User.objects.create(user_id = user_id)
-        tour = True
+    # try:
+    #     User.objects.get(user_id = user_id)
+    #     if not tour_in_progress:
+    #         tour = False
+    # except:
+    #     User.objects.create(user_id = user_id)
+    #     tour = True
         
 
     if tour:
@@ -40,10 +40,8 @@ def home_view(request, *args, **kwargs):
         template = 'index.html'
     return render(request, template,{})
 
-def start_tour(request):
+def start_tour():
     tour_in_progress = True
-    response = redirect('/data_input/')
-    return response
 
 #This function renders our html page for the data input
 def data_input_view(request, *args, **kwargs):
@@ -74,25 +72,25 @@ def data_input_view(request, *args, **kwargs):
     return render(request, "data_input.html", context)
 
 def clean_unused_data():
-    experiation_time = datetime.timedelta(hours= 2)
+    experiation_time = datetime.timedelta(days=0, hours= 2, minutes=0)
     current_time = datetime.datetime.now(datetime.timezone.utc)
     data_sets = Data_set.objects.all()
     for entry in data_sets:
         start_time = entry.time
         diff = (start_time - current_time)
-        if( diff > experiation_time):
+        if( diff.days < 0 or diff > experiation_time):
             delete_folder(path= entry.file.path)
             entry.delete()
 
 def delete_folder(path):
+    path = Path(path)
     try:
-        path = Path(path)
         path.unlink()
         directory = os.path.dirname(path)
         directory = Path(directory)
         directory.rmdir()
     except:
-        print(os.error)
+        print(path)
 
 
         
