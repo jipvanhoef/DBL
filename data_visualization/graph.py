@@ -1,7 +1,7 @@
 from web_project.settings import BASE_DIR
 from pathlib import Path
 
-from main.models import user_id, Data_set
+from data_visualization.models import user_id, Data_set
 
 import os
 import dash

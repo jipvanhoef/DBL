@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'data_visualization',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
 ]
 
