@@ -168,6 +168,88 @@ div.names {
 	line-height: 1.2; /* height between lines*/
 }
 
+div.popup {
+	width: 15%;
+	padding: 1%;
+	position: absolute;
+	z-index: 1;
+	opacity: 0.95;
+	margin: 0 9%;
+	top: 30%;
+	color: white;
+	background-color: grey;
+	border-radius: 15px;
+	
+	font-size: 1.1vw; /* vw: relative to size of the viewport */
+	line-height: 1.1; /* space between the lines of text */
+}
+
+div.message1{
+	left: 0;
+}
+
+div.message2{
+	left: 23%;
+}
+
+div.message3{
+	left: 46%;
+}
+
+div.message4{
+	left: 69%;
+}
+
+div.message5{
+	width: 5%;
+	text-align: center;
+	position: fixed;
+	top: 90%;
+	right: 4%;
+	background-color: black;
+	opacity: 0.8;
+}
+
+div.message6{
+	width: 5%;
+	text-align: center;
+	position: fixed;
+	top: 90%;
+	right: -4%;
+	background-color: black;
+	opacity: 0.8;
+}
+
+span.line {
+	border-left: 5px solid grey;
+	display: block;
+	height: 3vw;
+	width: 15%;
+	padding: 1%;
+	position: absolute;
+	z-index: 1;
+	opacity: 0.95;
+	margin: 0 9%;
+	top: 18%;
+}
+
+span.message1 {
+	left: 7%;
+}
+
+span.message2 {
+	left: 29.5%;
+}
+
+span.message3 {
+	left: 52%;
+}
+
+span.message4 {
+	left: 75%;
+}
+
+
 
 
 /* Data Input page */
