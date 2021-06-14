@@ -205,12 +205,22 @@ div.message5{
 	text-align: center;
 	position: fixed;
 	top: 90%;
-	right: 4%;
+	right: 12%;
 	background-color: black;
 	opacity: 0.8;
 }
 
 div.message6{
+	width: 5%;
+	text-align: center;
+	position: fixed;
+	top: 90%;
+	right: 4%;
+	background-color: black;
+	opacity: 0.8;
+}
+
+div.message7{
 	width: 5%;
 	text-align: center;
 	position: fixed;
