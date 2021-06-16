@@ -10,8 +10,6 @@ from web_project.settings import BASE_DIR
 
 from pathlib import Path
 
-
-from data_visualization import graph
 import os
 
 import datetime
@@ -22,22 +20,14 @@ from main.models import User
 
 
 #This function renders our html page for the home page
-tour = False
-tour_in_progress = False
-def home_view(request, *args, **kwargs):
-    # try:
-    #     User.objects.get(user_id = user_id)
-    #     if not tour_in_progress:
-    #         tour = False
-    # except:
-    #     User.objects.create(user_id = user_id)
-    #     tour = True
-        
 
-    if tour:
-        template = "index_tour.html"
-    else:
-        template = 'index.html'
+def home_view(request, *args, **kwargs):
+    try:
+        User.objects.get(user_id = user_id)
+    except:
+        User.objects.create(user_id = user_id)
+        
+    template = 'index.html'
     return render(request, template,{})
 
 def start_tour():
@@ -45,6 +35,10 @@ def start_tour():
 
 #This function renders our html page for the data input
 def data_input_view(request, *args, **kwargs):
+    try:
+        User.objects.get(user_id = user_id)
+    except:
+        User.objects.create(user_id = user_id)
     #check if there are files that are stored to long and delete them
     clean_unused_data()
     #check the request method 
@@ -56,7 +50,6 @@ def data_input_view(request, *args, **kwargs):
         if form.is_valid():
             #summit the form
             form.save()
-            graph.build_graph()
             badinput_error = False
         else:
             badinput_error = True
@@ -72,6 +65,7 @@ def data_input_view(request, *args, **kwargs):
     return render(request, "data_input.html", context)
 
 def clean_unused_data():
+    
     experiation_time = datetime.timedelta(days=0, hours= 2, minutes=0)
     current_time = datetime.datetime.now(datetime.timezone.utc)
     data_sets = Data_set.objects.all()
@@ -96,6 +90,10 @@ def delete_folder(path):
         
 #This function renders our html page for the contact page
 def contact_view(request, *args, **kwargs):
+    try:
+        User.objects.get(user_id = user_id)
+    except:
+        User.objects.create(user_id = user_id)
     return render(request, "contact.html", {})
 
 

@@ -69,12 +69,19 @@ def build_graph():
 
     df_enron_sorted = df_enron.sort_values(by='date') #making a sorted dataframe by sorting on the date
 
-#make 2 dataframes, one with all the mails that everyone received per day, and one with all the mails that everyone sent per day + the sentiment of those mails
+    #make 2 dataframes, one with all the mails that everyone received per day, and one with all the mails that everyone sent per day + the sentiment of those mails
     df_time_from = df_enron_sorted.groupby(['date', 'fromEmail' ]).agg({'sentiment':['mean'], 'fromEmail': [ 'count'],}).reset_index() #making a grouping object to group by date
     df_time_from.columns =['date', 'fromEmail', 'sentiment', 'fromEmailCount']
+    df_time_from['year'] = pd.DatetimeIndex(df_time_from['date']).year
+
     df_time_to = df_enron_sorted.groupby(['date', 'toEmail' ]).agg({'toEmail': [ 'count'],}).reset_index() #making a grouping object to group by date
     df_time_to.columns =['date', 'toEmail','toEmailCount']
+    df_time_to['year'] = pd.DatetimeIndex(df_time_to['date']).year
 
+    #dataframe for the average sentiment per day of the whole company
+    df_sent = df_enron_sorted.groupby(['date']).agg({'sentiment':['mean']}).reset_index() 
+    df_sent.columns=['date', 'sentiment']
+    df_sent['year'] = pd.DatetimeIndex(df_sent['date']).year
 
     #make a dataframe with all the from email adresses
     df_enron_from = df_enron.groupby('fromId').agg({'sentiment':['mean'], 'fromJobtitle': ['min'], 'fromEmail':['min']}).reset_index()
@@ -136,8 +143,8 @@ def build_graph():
         G.nodes[n]['pos'] += repos[posx]
 
     #make the graph framework with layout settings
-    fig = go.Figure(layout=go.Layout(
-                    title="network graph of all email data of enron per year <br>year visible: "+years[0].astype(str),
+    network_fig = go.Figure(layout=go.Layout(
+                    title="network graph of all email data of enron per year",
                     titlefont=dict(size=16),
                     showlegend=True,
                     hovermode='closest',
@@ -150,7 +157,7 @@ def build_graph():
                     yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)))
     #add all the traces for every year
     for i in range(yearscount):
-        fig.add_trace(
+        network_fig.add_trace(
             go.Scatter(
                 x=[],
                 y=[],
@@ -163,7 +170,7 @@ def build_graph():
 
     #add all the traces for every job title
     for i in range(jobtitlescount):
-        fig.add_trace(
+        network_fig.add_trace(
             go.Scatter(
                 x=[],
                 y=[],
@@ -192,63 +199,48 @@ def build_graph():
         testlisty[year]+=tuple([y0, y1, None])
 
     for year in range(len(years)):
-            fig.data[year]['x'] += tuple(testlistx[year])
-            fig.data[year]['y'] += tuple(testlisty[year])
-    fig.data[0].visible = True
+            network_fig.data[year]['x'] += tuple(testlistx[year])
+            network_fig.data[year]['y'] += tuple(testlisty[year])
+    network_fig.data[0].visible = True
     #add every person as a node to the trace with the corresponding job title
     for i in range(jobtitlescount):
         inew = i + yearscount
-        if fig.data[inew]['name']==jobtitles[i]:
+        if network_fig.data[inew]['name']==jobtitles[i]:
             for node in G.nodes():
                 if G.nodes[node]['Title'] == jobtitles[i]:
                     x, y = G.nodes[node]['pos']
-                    fig.data[inew]['x'] += tuple([x])
-                    fig.data[inew]['y'] += tuple([y]) 
-                    fig.data[inew]['marker']['color']+= tuple([jobcolor[i]])
+                    network_fig.data[inew]['x'] += tuple([x])
+                    network_fig.data[inew]['y'] += tuple([y]) 
+                    network_fig.data[inew]['marker']['color']+= tuple([jobcolor[i]])
             for node, adjacencies in enumerate(G.adjacency()):
                 if G.nodes[node+1]['Title'] == jobtitles[i]:
                     node_info =G.nodes[node+1]['mail']#DE .astype(str) IS TOEGEVOEGD
-                    fig.data[inew]['text']+=tuple([node_info])
+                    network_fig.data[inew]['text']+=tuple([node_info])
                     node_info =''
 
-    # Create and add slider
-    mailyears = []
-    jobs = []
-    total = []
-    for i in range(yearscount):
-        year = dict(
-            method="update",
-            args=[{"visible": [False] * yearscount + [True]*jobtitlescount},
-                {"title": "network graph of all email data of enron per year <br>year visible: " + years[i].astype(str)}],
-            label = yearsstring[i], # layout attribute
-        )
-        year["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"
-        mailyears.append(year)
-
-    sliders = [dict(
-        active=0,
-        currentvalue={"prefix": "year: "},
-        pad={"t": 50},
-        steps=mailyears,
-    )]
-
-    fig.update_layout(
-        sliders=sliders
-    )
     first_person = df_enron['fromEmail'].iloc[0]
     app.layout = html.Div([
         html.Div([
             dcc.Graph(
             id='network-graph',
-            figure=fig,
+            figure=network_fig,
             clickData={'points': [{'text': first_person}]}
-            )
-        ], style={'width': '49%', 'display': 'inline-block', 'padding': '0 20', 'top':'50%',  '-ms-transform': 'translateY(-50%)', 'transform':' translateY(-50%)'}),
+            ),
+            dcc.Slider(
+            id='years-slider',
+            min=years[0],
+            max=years[yearscount-1],
+            step=1,
+            value=years[0],
+        ),
+        html.Div(id='slider-output-container')
+        ], style={'width': '49%', 'display': 'inline-block', 'padding': '0 20', 'top':'50%',  '-ms-transform': 'translateY(-50%)', 'transform':' translateY(-50%)', 'text-align': 'center'}),
         html.Div([
             dcc.Graph(id='sentiment-time-series'),
             dcc.Graph(id='mail-time-series'),
 
-        ], style={'display': 'inline-block', 'width': '49%'})
+        ], style={'display': 'inline-block', 'width': '49%'}),
+
     ], style={'border': '5px solid #6D8890'})
     def create_time_series(dffto, dfffrom, title, y_axis1, y_axis2):
         fig = go.Figure(layout=go.Layout(
@@ -264,27 +256,23 @@ def build_graph():
                         xaxis=dict(showgrid=True, zeroline=True, showticklabels=True),
                         yaxis=dict(showgrid=True, zeroline=True, showticklabels=True)))
 
-        fig.add_trace(  
-        go.Scatter(
+        fig.add_trace(
+        go.Bar(
             x=dffto['date'],
             y=dffto[y_axis1],
             text=[],
             visible = True,
-            name = 'incoming mails',
-            line=dict(color = 'blue', width = 0.75),
-            hoverinfo='none',
-            mode='lines '))
+            marker_color = 'blue',
+            name = 'incoming mails'))
         fig.add_trace(
-        go.Scatter(
+        go.Bar(
             x=dfffrom['date'],
             y=dfffrom[y_axis2],
             text=[],
             visible = True,
-            name = 'outgoing mails',
-            line=dict(color = 'orange', width = 0.75),
-            hoverinfo='none',
-            mode='lines'))
-
+            marker_color = 'orange',
+            name = 'outgoing mails'))
+        fig.update_layout(barmode='stack')
         return fig
 
     def create_sentiment_graph(dff_personal, dff_total, title, y_axis, min_date, max_date, min_sent, max_sent):
@@ -301,55 +289,71 @@ def build_graph():
                     xaxis=dict(showgrid=True, zeroline=True, showticklabels=True),
                     yaxis=dict(showgrid=True, zeroline=True, showticklabels=True)))
 
-        fig.add_trace(  
-        go.Scatter(
+        fig.add_trace(
+        go.Bar(
             x=dff_total['date'],
             y=dff_total[y_axis],
             visible = True,
-            name = 'average sentiment over time of whole company',
-            hoverinfo='none',
-            fillcolor='grey',
-            fill='tozeroy',
-            mode='none'))
+            marker_color = 'grey',
+            name = 'Company'))
         fig.add_trace(
         go.Scatter(
             x=dff_personal['date'],
             y=dff_personal[y_axis],
             text=[],
             visible = True,
-            name = 'average sentiment over time personal',
+            name = 'Personal',
             line=dict(color = 'orange', width = 0.75),
-            hoverinfo='none',
             mode='lines+markers'))
         fig.update_layout(xaxis_range=[min_date, max_date], yaxis_range=[min_sent, max_sent])
         return fig
 
     @app.callback(
         dash.dependencies.Output('sentiment-time-series', 'figure'),
-        [dash.dependencies.Input('network-graph', 'clickData'),])
+        [dash.dependencies.Input('network-graph', 'clickData'),
+        dash.dependencies.Input('years-slider', 'value')])
 
-    def update_sentiment(clickData):
+    def update_sentiment(clickData, year):
         email = clickData['points'][0]['text']
-        dff = df_time_from[df_time_from['fromEmail'] == email]
+        dff = df_time_from[(df_time_from['fromEmail'] == email) & (df_time_from['year']==year)]
+        dfftot = df_sent[df_sent['year']==year]
         title = '<b>{}<br><b>{}'.format(email, 'average sentiment over time')
         y_axis = 'sentiment'
         min_date = dff['date'].min()
         max_date = dff['date'].max()
         min_sent = dff['sentiment'].min()-0.1
         max_sent = dff['sentiment'].max()+0.1
-
-        return create_sentiment_graph(dff, df_time_from, title, y_axis, min_date, max_date, min_sent, max_sent)
+        return create_sentiment_graph(dff, dfftot, title, y_axis, min_date, max_date, min_sent, max_sent)
 
     @app.callback(
         dash.dependencies.Output('mail-time-series', 'figure'),
-        [dash.dependencies.Input('network-graph', 'clickData'),])
+        [dash.dependencies.Input('network-graph', 'clickData'),
+        dash.dependencies.Input('years-slider', 'value')])
 
-    def update_mails(clickData):
+    def update_mails(clickData, year):
         email = clickData['points'][0]['text']
-        dffto = df_time_to[df_time_to['toEmail'] == email]
-        dfffrom = df_time_from[df_time_from['fromEmail'] == email]
+        dffto = df_time_to[(df_time_to['toEmail'] == email) & (df_time_to['year']==year)]
+        dfffrom = df_time_from[(df_time_from['fromEmail'] == email) & (df_time_from['year']==year)]
         title = '<b>{}<br><b>{}'.format(email, 'amount of sent and received mails over time')
         y_axis1 = 'toEmailCount'
         y_axis2 = 'fromEmailCount'
         return create_time_series(dffto, dfffrom,title, y_axis1, y_axis2)
+
+    @app.callback(
+        dash.dependencies.Output('slider-output-container', 'children'),
+        [dash.dependencies.Input('years-slider', 'value')])
+    def update_output(value):
+        return 'The year visible is: {}'.format(value)
+
+    @app.callback(
+        dash.dependencies.Output('network-graph', 'figure'),
+        [dash.dependencies.Input('years-slider', 'value')])
+    def update_network_fig(value):
+        year_index = years.index(value)
+        for i in range(yearscount):
+            if i == year_index:
+                network_fig.data[i].visible = True
+            else:
+                network_fig.data[i].visible = False
+        return network_fig
 build_graph()
