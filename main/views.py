@@ -78,6 +78,7 @@ def clean_unused_data():
 
 def delete_folder(path):
     path = Path(path)
+    path = Path.joinpath(BASE_DIR,path)
     try:
         path.unlink()
         directory = os.path.dirname(path)
