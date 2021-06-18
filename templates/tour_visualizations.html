@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Visualizations page -->
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <title>Visualizations</title>
+      
+  </head>
+  <body>
+    <section>
+      <h2> Visualizations </h2>
+      <article class="visualizations">
+        Here you can find the generated visualizations. On the left you can see the network graph and on 
+        the right there are two line graphs with more information, expanding the network graph. Have fun exploring the data!
+      </article>
+    </section>
+    <section>
+      <article class="visualization_1">
+        {%load plotly_dash%}
+        {%plotly_app name="network_graph" ratio=1%}
+      </article>
+    </section>
+    <div class="popup message8">
+      <h4>Network Graph</h4>
+      This is our main graph, which gives you an overview of the data per year.
+    </div>
+    <span class="line message8"></span>
+    <div class="popup message9">
+      <h4>Sentiment Graph</h4>
+      By clicking on a person in the network graph, this graph shows you the personal sentiment and the average sentiment of that year. 
+    </div>
+    <span class="line message9"></span>
+    <div class="popup message10">
+      <h4>Sent/Recieved Graph</h4>
+      Here you also find some extra personal information: the amount of emails the selected person has sent and recieved. 
+    </div>
+    <span class="line message10"></span>
+    <div class="popup message5">
+      Previous
+    </div>
+    <div class="popup message6">
+      Skip
+    </div>
+    <div class="popup message7">
+      Next
+    </div>       
+  </body>
+</html>
+{%endblock%}

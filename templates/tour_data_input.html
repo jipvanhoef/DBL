@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Data Input page -->
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+<head>
+	<title>Data Input</title>
+</head>
+<body>
+    {% if badinput_flag %}
+        <script>alert("This file type is not supported please summit a .csv file")</script>
+    {% endif %}
+    <article class="data_input">
+        <h2> Data Input </h2>
+        Getting bored of just looking at the default data set visualisations, use the feature below to implement your own dataset!
+    </article>
+    </section>
+    <div class="choose_data"> <!-- text with an input option for uploading your own dataset-->
+        Here you can choose a file and import it. The visualizations will alter depending on the input data. Keep in mind that the data set has to have the same structure as the enron dataset. So far the only supported file type is a csv file.
+        <form class="input" method="POST" enctype="multipart/form-data"8> {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Save">
+        </form>
+    </div>
+    <div class="popup message13">
+		To visualize your own data, you can import your own dataset here!
+	</div>
+	<span class="line message13"></span>
+</body>
+{%endblock%}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- Contact page -->
+<!-- For location we used the address of the TU/e University, mail of one of the group members, number of the course coordinator-->
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+<html lang="en">
+	<head>
+		<title>Contact</title>
+	</head>
+	<body>
+		<div class="contact"> 
+			<h2> Contact </h2>
+			<div class="contact_columns"> <!-- here we create a table -->
+				<div class="column_left"> <!-- left column -->
+					<h3> About Us </h3>
+					<div>
+						Collecting data is not that hard, but visualizing it is tricky sometimes. 
+						That is why we started this company. 
+						Our goal is to create a nice overview of your data, 
+						which you can then explore using interactive techniques. <br>
+						On the visualizations page you can try out the interactive images using our Enron database.
+						Even better, import your own data and start exploring! <br>
+					</div>
+					<div> <!-- Picture of the company name with names of the developers -->
+						<img class="contact_picture" src= "{% static 'main/Contactpage.png' %}" alt="Team VisKit">
+					</div>
+				</div>
+				<div class="column_right"> <!-- right column -->
+					<div class="rows">
+						<div class="row"> <!-- first row in the right column -->
+							<h3> Questions? </h3>
+							<p> <!-- text with href link to contact via email -->
+								Please send us a polite email to the address below, or contact us by phone. <br><br>
+								<a href="mailto:a.gurtu@student.tue.nl">a.gurtu@student.tue.nl</a> <br>
+								+31 (0)40 247 9111
+							</p>
+						</div>
+						<div class="row"> <!-- second row in the right column -->
+							<h3> Location </h3>
+							<p>
+								Den Dolech 2 <br>
+								5612 AZ Eindhoven <br>
+							</p>
+							<p> <!-- link to google maps with location of the company -->
+								<a href="https://www.google.com/maps/place/Technische+Universiteit+Eindhoven/@51.4486098,5.4907148,15z/data=!4m5!3m4!1s0x0:0xc4a671b15dfb8dff!8m2!3d51.4486098!4d5.4907148" target="_blank"> See Map </a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popup message11">
+			Lastly, you can read something about us and why we started this company.
+		</div>
+		<span class="line message11"></span>
+		<div class="popup message12">
+			For questions you can easily contact us!
+		</div>
+		<span class="line message12"></span>
+		<div class="popup message6">
+			Previous
+		</div>
+		<div class="popup message7">
+			Finish
+		</div> 
+	</body>
+</html>
+{%endblock%}
