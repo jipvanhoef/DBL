@@ -1,4 +1,5 @@
 from typing import Pattern
+from web_project.settings import BASE_DIR
 from django.db import models
 from pathlib import Path
 import uuid  
@@ -10,6 +11,7 @@ user_id = uuid.uuid1()
 def file_name(instance, filename):
     #create the path
     parent = Path('data_set')
+    path = Path.joinpath(BASE_DIR, parent)
     path = Path.joinpath(parent,str(user_id))
     path = Path.joinpath(path,filename)
     #return the temporary path 
