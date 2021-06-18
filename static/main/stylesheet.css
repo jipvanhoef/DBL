@@ -42,6 +42,14 @@ h3 {
     font-weight: bold; /* (normal, bold, or numeric) style of the text */
 }
 
+h4 {
+	display: block; /* type of displaying the object */
+    font-size:1.5vw; /* vw: relative to size of the viewport */
+    font-weight: bold; /* (normal, bold, or numeric) style of the text */
+	margin-top: 0;
+	margin-bottom: 4%;
+	text-decoration: underline;
+}
 
 
 
@@ -342,6 +350,40 @@ button { /* Not used yet */
 	color: white;
 }
 
+div.message8{
+	left: 1.5%;
+	top: 38%;
+}
+
+div.message9{
+	left: 50%;
+	top: 30%;
+}
+
+div.message10{
+	width: 18%;
+	left: 12%;
+	top: 120%;
+}
+
+span.message8 {
+	left: 10%;
+	top: 55%;
+}
+
+span.message9 {
+	left: 58%;
+	top: 52%;
+}
+
+span.message10 {
+	border-left: 0;
+	border-bottom: 5px solid grey;
+	width: 5%;
+	left: 33%;
+	top: 120%;
+}
+
 
 
 /* Contact page */
@@ -385,6 +427,26 @@ img.contact_picture {
 	width: 60%;
 	height: auto;
 	margin: -2% 25%; /* (top & bottom - left & right) space between border and other objects/edge of the screen */
+}
+
+div.message11{
+	left: 12%;
+	top: 18%;
+}
+
+div.message12{
+	left: 57%;
+	top: 20.5%;
+}
+
+span.message11 {
+	left: 20%;
+	top: 31%;
+}
+
+span.message12 {
+	left: 65%;
+	top: 31%;
 }
 
 
