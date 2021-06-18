@@ -26,5 +26,8 @@ class Data_set(models.Model):
     #save the time when the user summited the data so that it can be determined when the data should be errased
     time = models.DateTimeField(default= datetime.datetime.now().isoformat())
 
+class User(models.Model):
+    #create for each user a unique id 
+    user_id = models.UUIDField(default= user_id)
 
 

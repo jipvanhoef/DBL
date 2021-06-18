@@ -26,12 +26,13 @@ def home_view(request, *args, **kwargs):
         User.objects.get(user_id = user_id)
     except:
         User.objects.create(user_id = user_id)
+        return response.HttpResponseRedirect('/tour/')
         
-    template = 'index.html'
-    return render(request, template,{})
+    
+    return render(request, 'index.html',{})
 
-def start_tour():
-    tour_in_progress = True
+def home_view_tour(request, *args, **kwargs):
+    return render(request, 'tour_index.html' ,{})
 
 #This function renders our html page for the data input
 def data_input_view(request, *args, **kwargs):
@@ -39,6 +40,7 @@ def data_input_view(request, *args, **kwargs):
         User.objects.get(user_id = user_id)
     except:
         User.objects.create(user_id = user_id)
+        return response.HttpResponseRedirect('/tour/')
     #check if there are files that are stored to long and delete them
     clean_unused_data()
     #check the request method 
@@ -78,7 +80,6 @@ def clean_unused_data():
 
 def delete_folder(path):
     path = Path(path)
-    path = Path.joinpath(BASE_DIR,path)
     try:
         path.unlink()
         directory = os.path.dirname(path)
@@ -87,6 +88,29 @@ def delete_folder(path):
     except:
         print(path)
 
+def data_input_view_tour(request, *args, **kwargs):
+    #check if there are files that are stored to long and delete them
+    clean_unused_data()
+    #check the request method 
+    if request.method == "POST":
+        #Initilize the form in the varible form
+        form = Data_setForm(request.POST, request.FILES)
+
+        #check if the form is valid
+        if form.is_valid():
+            #summit the form
+            form.save()
+            badinput_error = False
+        else:
+            badinput_error = True
+    else:
+        #set the form to a empty Data_setForm
+        form = Data_setForm()
+        badinput_error = False 
+
+    #set the html context to the form      
+    context = {'form': form, 'badinput_flag': badinput_error}
+    return render(request, 'tour_data_input.html' ,context)
 
         
 #This function renders our html page for the contact page
@@ -95,6 +119,8 @@ def contact_view(request, *args, **kwargs):
         User.objects.get(user_id = user_id)
     except:
         User.objects.create(user_id = user_id)
+        return response.HttpResponseRedirect('/tour/')
     return render(request, "contact.html", {})
 
-
+def contact_view_tour(request, *args, **kwargs):
+    return render(request, "tour_contact.html",{})
