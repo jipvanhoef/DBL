@@ -176,6 +176,10 @@ div.names {
 	line-height: 1.2; /* height between lines*/
 }
 
+a.tour_buttons {
+	color: white;
+}
+
 div.popup {
 	width: 15%;
 	padding: 1%;
