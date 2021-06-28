@@ -46,9 +46,9 @@ h4 {
 	display: block; /* type of displaying the object */
     font-size:1.5vw; /* vw: relative to size of the viewport */
     font-weight: bold; /* (normal, bold, or numeric) style of the text */
-	margin-top: 0;
-	margin-bottom: 4%;
-	text-decoration: underline;
+	margin-top: 0; /* top space between border and other objects/edge of the screen */
+	margin-bottom: 4%; /* bottom space between border and other objects/edge of the screen */
+	text-decoration: underline; /* underlines the text */
 }
 
 
@@ -144,8 +144,8 @@ img.development_team_image {
 	transition: 0.5s ease; /* time to transition opacity */
 	opacity: 0;
 	position: absolute; /* type of positioning used for this element */
-	top: 45vw; /* vw: relative to size of the viewport */
-	left: 50%; /* horizontal position, move the given space to the right (from the left) */
+	top: 45vw; /* top space between this element and the edge of the screen (vw: relative to size of the viewport) */
+	left: 50%;  /* left space between this element and the edge of the screen */
 	transform: translate(-50%, -50%); /* move an element from current position */
 	-ms-transform: translate(-50%, -50%) /* move an element from current position (for older internet versions) */
 }
@@ -169,8 +169,8 @@ div.text_image {
 
 div.names {
 	display: block; /* type of displaying the object */
-	margin: 0 10%; /* space between border and other objects/edge of the screen */
-	margin-bottom: 5%; /* bottom space between border and other objects/edge of the screen, overwrites the previous margin */
+	margin: 0 10%; /* (top & bottom - left & right) space between border and other objects/edge of the screen */
+	margin-bottom: 5%; /* bottom space between border and other objects/edge of the screen, overwrites the previous bottom margin */
 	font-size: 0.7vw; /* vw: relative to size of the viewport */
 	letter-spacing: 1px; /* space between letters*/
 	line-height: 1.2; /* height between lines*/
@@ -182,93 +182,92 @@ a.tour_buttons {
 
 div.popup {
 	width: 15%;
-	padding: 1%;
-	position: absolute;
-	z-index: 1;
+	padding: 1%; /* space between object and border */
+	position: absolute; /* type of positioning used for this element */
+	z-index: 1; /* specifies the stack order of this element (the element with the greater stack order is always in front of a lower one) */
 	opacity: 0.95;
-	margin: 0 9%;
-	top: 30%;
+	margin: 0 9%; /* (top & bottom - left & right) space between border and other objects/edge of the screen */
+	top: 30%; /* top space between this element and the edge of the screen */
 	color: white;
 	background-color: grey;
-	border-radius: 15px;
-	
+	border-radius: 15px; /* amount of bending in the edges of the border */
 	font-size: 1.1vw; /* vw: relative to size of the viewport */
 	line-height: 1.1; /* space between the lines of text */
 }
 
 div.message1{
-	left: 0;
+	left: 0; /* left space between this element and the edge of the screen */
 }
 
 div.message2{
-	left: 23%;
+	left: 23%; /* left space between this element and the edge of the screen */
 }
 
 div.message3{
-	left: 46%;
+	left: 46%; /* left space between this element and the edge of the screen */
 }
 
 div.message4{
-	left: 69%;
+	left: 69%; /* left space between this element and the edge of the screen */
 }
 
 div.message5{
 	width: 5%;
-	text-align: center;
-	position: fixed;
-	top: 90%;
-	right: 12%;
+	text-align: center; /* position of the text */
+	position: fixed; /* type of positioning used for this element */
+	top: 90%; /* top space between this element and the edge of the screen */
+	right: 12%;  /* right space between this element and the edge of the screen */
 	background-color: black;
 	opacity: 0.8;
 }
 
 div.message6{
 	width: 5%;
-	text-align: center;
-	position: fixed;
-	top: 90%;
-	right: 4%;
+	text-align: center; /* position of the text */
+	position: fixed; /* type of positioning used for this element */
+	top: 90%; /* top space between this element and the edge of the screen */
+	right: 4%; /* right space between this element and the edge of the screen */
 	background-color: black;
 	opacity: 0.8;
 }
 
 div.message7{
 	width: 5%;
-	text-align: center;
-	position: fixed;
-	top: 90%;
-	right: -4%;
+	text-align: center; /* position of the text */
+	position: fixed; /* type of positioning used for this element */
+	top: 90%; /* top space between this element and the edge of the screen */
+	right: -4%; /* right space between this element and the edge of the screen */
 	background-color: black;
 	opacity: 0.8;
 }
 
 span.line {
-	border-left: 5px solid grey;
-	display: block;
+	border-left: 5px solid grey; /* (thickness - type of line - color) of the left border */
+	display: block; /* type of displaying the object */
 	height: 3vw;
 	width: 15%;
-	padding: 1%;
-	position: absolute;
-	z-index: 1;
+	padding: 1%; /* space between object and border */
+	position: absolute; /* type of positioning used for this element */
+	z-index: 1; /* specifies the stack order of this element (the element with the greater stack order is always in front of a lower one) */
 	opacity: 0.95;
-	margin: 0 9%;
-	top: 18%;
+	margin: 0 9%; /* (top & bottom - left & right) space between border and other objects/edge of the screen */
+	top: 18%; /* top space between this element and the edge of the screen */
 }
 
 span.message1 {
-	left: 7%;
+	left: 7%;  /* left space between this element and the edge of the screen */
 }
 
 span.message2 {
-	left: 29.5%;
+	left: 29.5%; /* left space between this element and the edge of the screen */
 }
 
 span.message3 {
-	left: 52%;
+	left: 52%; /* left space between this element and the edge of the screen */
 }
 
 span.message4 {
-	left: 75%;
+	left: 75%; /* left space between this element and the edge of the screen */
 }
 
 
@@ -303,17 +302,17 @@ article.data_input {
 
 form.input{
 	display: block; /* type of displaying the object */
-	left: 30%; /* horizontal position, move the given space to the right (from the left) */
+	left: 30%;  /* left space between this element and the edge of the screen */
 }
 
 div.message13{
-	left: 2%;
-	top: 79%;
+	left: 2%; /* left space between this element and the edge of the screen */
+	top: 79%; /* top space between this element and the edge of the screen */
 }
 
 span.message13 {
-	left: 9.5%;
-	top: 67%;
+	left: 9.5%; /* left space between this element and the edge of the screen */
+	top: 67%; /* top space between this element and the edge of the screen */
 }
 
 
@@ -341,7 +340,7 @@ article.visualization_1 {
 button { /* Not used yet */
 	display: block; /* type of displaying the object */
 	border: 3px solid black; /* (thickness - type of line - color) of the border */
-	border-color: black;
+	border-color: black; /* color of the border itself */
 	background-color: grey;
 	border-radius: 30px; /* amount of bending in the edges of the border */
 	color: black;
@@ -365,37 +364,37 @@ button { /* Not used yet */
 }
 
 div.message8{
-	left: 1.5%;
-	top: 38%;
+	left: 1.5%; /* left space between this element and the edge of the screen */
+	top: 38%; /* top space between this element and the edge of the screen */
 }
 
 div.message9{
-	left: 50%;
-	top: 30%;
+	left: 50%; /* left space between this element and the edge of the screen */
+	top: 30%; /* top space between this element and the edge of the screen */
 }
 
 div.message10{
 	width: 18%;
-	left: 12%;
-	top: 120%;
+	left: 12%; /* left space between this element and the edge of the screen */
+	top: 120%; /* top space between this element and the edge of the screen */
 }
 
 span.message8 {
-	left: 10%;
-	top: 55%;
+	left: 10%; /* left space between this element and the edge of the screen */
+	top: 55%; /* top space between this element and the edge of the screen */
 }
 
 span.message9 {
-	left: 58%;
-	top: 52%;
+	left: 58%; /* left space between this element and the edge of the screen */
+	top: 52%; /* top space between this element and the edge of the screen */
 }
 
 span.message10 {
-	border-left: 0;
-	border-bottom: 5px solid grey;
+	border-left: 0; /* no left border */
+	border-bottom: 5px solid grey; /* (thickness - type of line - color) of the bottom border */
 	width: 5%;
-	left: 33%;
-	top: 120%;
+	left: 33%; /* left space between this element and the edge of the screen */
+	top: 120%; /* top space between this element and the edge of the screen */
 }
 
 
@@ -444,23 +443,21 @@ img.contact_picture {
 }
 
 div.message11{
-	left: 12%;
-	top: 18%;
+	left: 12%; /* left space between this element and the edge of the screen */
+	top: 18%; /* top space between this element and the edge of the screen */
 }
 
 div.message12{
-	left: 57%;
-	top: 20.5%;
+	left: 57%; /* left space between this element and the edge of the screen */
+	top: 20.5%; /* top space between this element and the edge of the screen */
 }
 
 span.message11 {
-	left: 20%;
-	top: 31%;
+	left: 20%; /* left space between this element and the edge of the screen */
+	top: 31%; /* top space between this element and the edge of the screen */
 }
 
 span.message12 {
-	left: 65%;
-	top: 31%;
+	left: 65%; /* left space between this element and the edge of the screen */
+	top: 31%; /* top space between this element and the edge of the screen */
 }
-
-
