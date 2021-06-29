@@ -144,7 +144,7 @@ def build_graph():
 
     #make the graph framework with layout settings
     network_fig = go.Figure(layout=go.Layout(
-                    title="network graph of all email data of enron per year",
+                    title= '<b>{}<br><b>'.format('Network Graph of all email data per Year'),
                     titlefont=dict(size=16),
                     showlegend=True,
                     hovermode='closest',
@@ -317,7 +317,7 @@ def build_graph():
         email = clickData['points'][0]['text']
         dff = df_time_from[(df_time_from['fromEmail'] == email) & (df_time_from['year']==year)]
         dfftot = df_sent[df_sent['year']==year]
-        title = '<b>{}<br><b>{}'.format(email, 'average sentiment over time')
+        title = '<b>{}</b><br>{}'.format('Average Sentiment over time', 'Viewing: '+ email)
         y_axis = 'sentiment'
         min_date = dff['date'].min()
         max_date = dff['date'].max()
@@ -334,7 +334,7 @@ def build_graph():
         email = clickData['points'][0]['text']
         dffto = df_time_to[(df_time_to['toEmail'] == email) & (df_time_to['year']==year)]
         dfffrom = df_time_from[(df_time_from['fromEmail'] == email) & (df_time_from['year']==year)]
-        title = '<b>{}<br><b>{}'.format(email, 'amount of sent and received mails over time')
+        title = '<b>{}</b><br>{}'.format('Amount of Sent and Received mails over time', 'Viewing: '+ email)
         y_axis1 = 'toEmailCount'
         y_axis2 = 'fromEmailCount'
         return create_time_series(dffto, dfffrom,title, y_axis1, y_axis2)
