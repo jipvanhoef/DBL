@@ -352,7 +352,7 @@ def build_graph():
         if dfffrom.empty and dffto.empty:
             title = '<b>{}<br>{}{}'.format('No in or outgoing mails available for this year!', 'Viewing: ', email)
         else:
-            title = '<b>{}<b>{}<br></b>{}{}'.format('Amount of sent and received mails over time in the year ', year, 'Viewing: ', email)
+            title = '<b>{}<b>{}</b><br>{}{}'.format('Amount of sent and received mails over time in the year ', year, 'Viewing: ', email)
         y_axis1 = 'toEmailCount'
         y_axis2 = 'fromEmailCount'
         return create_time_series(dffto, dfffrom,title, y_axis1, y_axis2)
