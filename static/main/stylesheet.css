@@ -270,6 +270,34 @@ span.message4 {
 	left: 75%; /* left space between this element and the edge of the screen */
 }
 
+article.video {
+	font-family: Georgia, serif; /* style of the font (NL: "lettertype") */
+	font-size: 1.5vw; /* vw: relative to size of the viewport */
+	font-style: normal; /* normal or italic */
+	font-weight: normal; /* (normal, bold, or numeric) style of the text */
+	margin-top: 2%; /* top space between border and other objects/edge of the screen */
+	margin-left: 10%; /* left space between border and other objects/edge of the screen */
+	margin-right: 65%; /* right space between border and other objects/edge of the screen */
+}
+
+div.video {
+	display: block; /* type of displaying the object */
+	position: absolute; /* type of positioning used for this element */
+	margin-left: 40%; /* left space between border and other objects/edge of the screen */
+	top: 80vw; /* top space between this element and the edge of the screen */
+	
+}
+
+iframe.video {
+	width: 40vw;
+	height: 20vw;
+	border: 2px solid black; /* (thickness - type of line - color) of the border */
+	border-radius: 8px; /* amount of bending in the edges of the border */
+	padding: 0; /* space between image and border */
+
+
+}
+
 
 
 
