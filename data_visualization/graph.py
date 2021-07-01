@@ -144,7 +144,7 @@ def build_graph():
 
     #make the graph framework with layout settings
     network_fig = go.Figure(layout=go.Layout(
-                    title= '<b>{}<br><b>'.format('Network Graph of all email data per Year'),
+                    title= '<b>{}'.format('Network Graph of all email data per Year'),
                     titlefont=dict(size=16),
                     showlegend=True,
                     hovermode='closest',
@@ -329,9 +329,9 @@ def build_graph():
         dff = df_time_from[(df_time_from['fromEmail'] == email) & (df_time_from['year']==year)]
         dfftot = df_sent[df_sent['year']==year]
         if dff.empty:
-            title = '<b>{}<br>{}{}'.format('No outgoing mails available for this year!', 'Viewing: ', email)
+            title = '<b>{}</b><br>{}'.format('No outgoing mails available for this year', 'Viewing: '+ email)
         else:
-            title = '<b>{}<b>{}<br></b>{}{}'.format('average sentiment of outgoing mails over time in the year ', year, 'Viewing: ', email)
+            title = '<b>{}</b><br>{}'.format('Average Sentiment over time', 'Viewing: '+ email)
         y_axis = 'sentiment'
         min_date = dff['date'].min()
         max_date = dff['date'].max()
@@ -350,9 +350,9 @@ def build_graph():
         dffto = df_time_to[(df_time_to['toEmail'] == email) & (df_time_to['year']==year)]
         dfffrom = df_time_from[(df_time_from['fromEmail'] == email) & (df_time_from['year']==year)]
         if dfffrom.empty and dffto.empty:
-            title = '<b>{}<br>{}{}'.format('No in or outgoing mails available for this year!', 'Viewing: ', email)
+            title = '<b>{}</b><br>{}'.format('No in or outgoing mails available for this year', 'Viewing: '+ email)
         else:
-            title = '<b>{}<b>{}</b><br>{}{}'.format('Amount of sent and received mails over time in the year ', year, 'Viewing: ', email)
+            title = '<b>{}</b><br>{}'.format('Amount of Sent and Received mails over time', 'Viewing: '+ email)
         y_axis1 = 'toEmailCount'
         y_axis2 = 'fromEmailCount'
         return create_time_series(dffto, dfffrom,title, y_axis1, y_axis2)
